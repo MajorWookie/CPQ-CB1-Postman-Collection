@@ -1,0 +1,2453 @@
+{
+	"info": {
+		"_postman_id": "8f406bb9-f7b6-44cb-a588-32a5802793a9",
+		"name": "CPQ Consulting Build 01",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Get Account",
+					"id": "2d420e4e-87a0-406a-8eaf-7931cb1c61d7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/accounts/{customerId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Accounts",
+					"id": "d334220a-99a1-4e24-bae2-3ef39e3b4aac",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/accounts"
+					},
+					"response": []
+				}
+			],
+			"id": "6c519f3c-1f73-4019-820e-bdbfbbf2290c"
+		},
+		{
+			"name": "Asset",
+			"item": [
+				{
+					"name": "Configuration BOM Instance",
+					"item": [],
+					"id": "e2f03412-6431-4f48-9b39-5b4eeb2211ce"
+				},
+				{
+					"name": "Get All Assets",
+					"id": "da5c3abb-b986-441f-8999-5315cbbbae96",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/assets",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "status",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "_ArraySet_t",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Asset",
+					"id": "5b1118e9-a8a5-446d-913e-109b2ec5c028",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "{{aAPassword}}",
+								"username": "{{aAUserName}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/assets"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Projected Assets",
+					"id": "d04adb0f-21d0-4346-bd9d-bc37acf2aca6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": \"300000016382089\",\n    \"sourceIdentifier\": \"extendedStandardProcess_bmClone_1\",\n    \"criteria\": {\n      \"enableHierarchy\": false,\n      \"orderby\": [\n        \"assetKey:DESC\",\n        \"partNumber:DESC\",\n        \"serviceId:DESC\",\n        \"id:DESC\",\n        \"transactionId:DESC\",\n        \"lineId:DESC\"\n      ]//,\n      //\"q\": \"{$or:[{'assetKey':{$eq:'kgAsset1'}},{'rootAssetKey':{$eq:'kgAsset1'}},{'serviceId':{$eq:null}},{'partNumber':{$eq:'part11'}}]}\"\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/projectedAssets/actions/search"
+					},
+					"response": []
+				}
+			],
+			"id": "021e6987-9c10-4b21-9ebf-54241c8b9cdb"
+		},
+		{
+			"name": "Calculate Price",
+			"item": [
+				{
+					"name": "Calculate Price",
+					"id": "eb56f538-00e3-415b-9f71-ab57dc7cc6e2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": \"\",\n    \"currencyCode\": \"USD\",\n    \"priceBookVarName\": \"_default_price_book\",\n    \"headerAttributeValues\": {},\n    \"items\": [\n        {\n            \"itemIdentifier\": \"64800e55b292d326606f0b0d\",\n            \"partNumber\": \"SRVR_WRRNTY_V\",\n            \"itemAttributeValues\": {\n                \"_quantity\": 1,\n                \"_serviceDurationPeriod\": 2,\n                \"_serviceDuration\": \"YEAR\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/pricing/actions/calculatePrice"
+					},
+					"response": []
+				}
+			],
+			"id": "4dbd5972-cb14-4ac4-9f38-994200f1fc4b"
+		},
+		{
+			"name": "Certificates",
+			"item": [
+				{
+					"name": "Get List of All Certificates",
+					"id": "896119b7-d2bf-4225-a7a9-065869f4a1d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/certificates"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Certificate",
+					"id": "2cff4cfc-ac60-40f6-afa4-b8119324dba6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/certificates/{name}"
+					},
+					"response": []
+				}
+			],
+			"id": "43bc9b71-6edd-40dd-a0d3-b3aae43776b3"
+		},
+		{
+			"name": "Commerce",
+			"item": [
+				{
+					"name": "Oraclecpqo",
+					"item": [
+						{
+							"name": "Get a Transaction",
+							"id": "a0c21942-1b24-4930-86a2-216541420e32",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38545967"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Transactions",
+							"id": "963894a4-ef5c-4d4d-9bf4-3a5c408aa023",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Transaction Line",
+							"id": "48b1b36b-1066-49c9-b723-7e20ab3bee9a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38399470/transactionLine/92"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Transaction Lines",
+							"id": "9442d022-6d46-4e54-aab0-10bd1b8f6588",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/{Bsid}/transactionLine"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Transaction",
+							"id": "2d8e7983-1c5a-4de8-a43a-f6f20126675f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Transaction",
+							"id": "592cb03f-7fa9-4e23-a12c-a22b621b4b01",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38517789/actions/deleteTransaction_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction",
+							"id": "8d458f7b-6d4d-495d-81a3-31a20a12d971",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38517789/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Request Approval",
+							"id": "28088157-5bf4-4a62-9438-dd479ec8b9a4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38197323/actions/request_approval_submit_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Approvals",
+							"id": "3b256108-b119-4065-a1e5-196616e7366d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38197323/actions/revise_submit_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Transaction Lines",
+							"id": "0f6cbe7e-956e-4f79-9e22-42587f4600c5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/37891329/actions/_update_line_items"
+							},
+							"response": []
+						},
+						{
+							"name": "Interact - Transaction",
+							"id": "1e49f946-7778-48a7-9093-fbbc4b186722",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/{id}/actions/_interact"
+							},
+							"response": []
+						}
+					],
+					"id": "d362b685-c379-4941-ab8f-072810fef26f"
+				}
+			],
+			"id": "e308e595-33c2-4945-8a4e-f6cb7d4250c2"
+		},
+		{
+			"name": "Configuration Bulk Add to Transaction",
+			"item": [
+				{
+					"name": "Bulk Add to Transaction",
+					"id": "24207919-7441-45c2-8187-4a2366aa3e10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bsId\": 38545896,\n    \"documentId\": 36893204,\n    \"items\": [\n        {\n            \"productFamily\": \"visionServer\",\n            \"productLine\": \"servers\",\n            \"model\": \"AT2151000\",\n            \"configData\": {\n                \"processorQuantity\": {\n                    \"value\": 1,\n                    \"displayValue\": \"1\"\n                },\n                \"rAMStickMaximum\": 8,\n                \"hDDSlots\": 5,\n                \"currencyConfigExample\": null,\n                \"rAMItemNumberForBOMTable\": {\n                    \"value\": \"CM2151030\",\n                    \"displayValue\": \"CM2151030\"\n                },\n                \"software\": {\n                    \"value\": \"Oracle Linux\",\n                    \"displayValue\": \"Oracle Linux\"\n                },\n                \"modifyServiceDetails\": false,\n                \"professionalConsulting\": {\n                    \"items\": []\n                },\n                \"dataCap\": true,\n                \"iOSlots\": 4,\n                \"serviceCounter\": null,\n                \"rAMStickMinimum\": 4,\n                \"dateConfigExample\": null,\n                \"transceivers\": 0,\n                \"dVDRWDrive\": false,\n                \"rAMCapacityForBOM\": \"4\",\n                \"rAMCapacity\": {\n                    \"value\": \"32 GB RAM (4 x 8GB)\",\n                    \"displayValue\": \"32 GB RAM (4 x 8GB)\"\n                },\n                \"powerCord\": {\n                    \"value\": \"Power Cord Length 2M\",\n                    \"displayValue\": \"2M\"\n                },\n                \"internetConnectionSpeed\": {\n                    \"value\": {\n                        \"value\": \"750 MBs\",\n                        \"displayValue\": \"750 MBs\"\n                    },\n                    \"locked\": false\n                },\n                \"hardDrive\": {\n                    \"value\": \"300 GB HDD\",\n                    \"displayValue\": \"300 GB HDD\"\n                },\n                \"internetConnection\": {\n                    \"value\": {\n                        \"value\": \"Fiber\",\n                        \"displayValue\": \"Fiber\"\n                    },\n                    \"locked\": false\n                },\n                \"iOCards\": 0,\n                \"applicationCounter\": null,\n                \"powerCableChoice\": false,\n                \"chassis\": {\n                    \"value\": \"Ultra Server X7-4: 3 Rack Unit\",\n                    \"displayValue\": \"3 Rack Unit\"\n                },\n                \"monitoring\": {\n                    \"items\": []\n                },\n                \"processor\": {\n                    \"value\": \"8-core 2.4 GHz Processor\",\n                    \"displayValue\": \"8-core 2.4 GHz Processor\"\n                },\n                \"cloudStorage\": {\n                    \"value\": {\n                        \"value\": \"1 TB\",\n                        \"displayValue\": \"1 TB\"\n                    },\n                    \"locked\": false\n                },\n                \"servicePlan\": {\n                    \"value\": \"Gold Service\",\n                    \"displayValue\": \"Gold Service\"\n                },\n                \"oSLicenses\": 1,\n                \"systemAssistant4GBUSB\": false,\n                \"serverLevel\": {\n                    \"value\": \"None\",\n                    \"displayValue\": \"Open\"\n                }\n            }\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+					},
+					"response": []
+				}
+			],
+			"id": "38dc584c-cb8b-46bc-8695-cebc10241993"
+		},
+		{
+			"name": "Configuration Run-Time Data",
+			"item": [
+				{
+					"name": "Server",
+					"item": [
+						{
+							"name": "Configure Server Model",
+							"id": "2bd29df0-a00f-420f-944b-a19fd9745510",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_configure"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Server Model",
+							"id": "c01c5f00-4b95-4c21-babe-29d6883b418b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cacheInstanceId\": \"\",\n    \"configData\": {},\n    \"criteria\": {\n        //\"state\": true,\n        \"fields\": [],\n        \"childDefs\": []\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_update"
+							},
+							"response": []
+						},
+						{
+							"name": "Load Server Model",
+							"id": "fa2ee07f-881b-48d3-affa-23d7a3f39d6f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cacheInstanceId\": \"fssl182rI9fDYriMKcQWkoK9RbKvGwS8ZMKGlZwVGiEK8grSX14xb3RNNdgZJSxo\",\n    \"criteria\": {\n        \"state\": true,\n        \"fields\": [],\n        \"childDefs\": [\n            {}\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_loadData"
+							},
+							"response": []
+						}
+					],
+					"id": "758ae5cc-19bd-47d8-8464-2c823d76c9fc"
+				},
+				{
+					"name": "Get BOM Items",
+					"id": "d75f5bda-6667-4fff-ae69-16677a495f11",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cacheInstanceId\": \"2mnqIPmj24kRirwvURcR00zqUQ0EFC9H6FsKbuh2ficnDBHYzh3DjUmB3kidnsqN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/_bom"
+					},
+					"response": []
+				},
+				{
+					"name": "Drop Cache",
+					"id": "dc1c9dda-f593-4bd8-bbd2-44e9115ac4a0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cacheInstanceId\": \"2mnqIPmj24kRirwvURcR00zqUQ0EFC9H6FsKbuh2ficnDBHYzh3DjUmB3kidnsqN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_dropCache"
+					},
+					"response": []
+				}
+			],
+			"id": "bdf520c5-6eca-4271-80a2-e14ad862b580"
+		},
+		{
+			"name": "Configuration Layout & Metadata",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "86aaaf51-a587-4bca-8059-1f073e6e492c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/layoutCache/{prodFamVarName}/{prodLineVarName}/{modelVarName}/attributes?configFlowVariableName=flow1",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"layoutCache",
+								"{prodFamVarName}",
+								"{prodLineVarName}",
+								"{modelVarName}",
+								"attributes"
+							],
+							"query": [
+								{
+									"key": "configFlowVariableName",
+									"value": "flow1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "f8f0c68f-5ccc-474c-9e77-c28f67c6cb14"
+		},
+		{
+			"name": "Data Table",
+			"item": [
+				{
+					"name": "Tables",
+					"item": [
+						{
+							"name": "Get List of Data Tables",
+							"id": "6986b745-41ba-4f3f-8685-564c267310fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/datatables",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"datatables"
+									],
+									"query": [
+										{
+											"key": "onlyDate",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "field",
+											"value": "id,name,folder",
+											"disabled": true
+										},
+										{
+											"key": "expand",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data Table Properties",
+							"id": "be09b995-77df-402a-b0c7-13249e98cb6a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables/{tableName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Data Table",
+							"id": "8495d9d4-c345-45a2-95c0-66a763621a00",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Data Table",
+							"id": "829e5934-2115-46dd-85b5-28bec93488d5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables{tableName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Data Tables",
+							"id": "673c0d24-842c-48e6-a82f-d27c1a783aca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"selections\": [\"{tableName}\", \"{{tableName}}\"]\n}\n\n"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/deleteTables"
+							},
+							"response": []
+						},
+						{
+							"name": "Deploy Data Tables",
+							"id": "88d72938-025b-466a-a626-3fe8b53fcc8b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/deploy"
+							},
+							"response": []
+						},
+						{
+							"name": "Export Data Tables",
+							"id": "a88785f7-dd51-499c-9433-59384ffb5056",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/export"
+							},
+							"response": []
+						},
+						{
+							"name": "Import Data Tables",
+							"id": "3bf96c38-e700-43ad-88d5-9ffb431c0a1e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/import"
+							},
+							"response": []
+						},
+						{
+							"name": "Move Data Tables",
+							"id": "435f9ecd-183b-4c69-a469-faa8619eb969",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/moveTables"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Data Table Properties",
+							"id": "f612f511-271a-4ccf-bbae-e00bf693e2b5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"\",\n  \"description\": \"\",\n  \"folder\": {\n    \"variableName\": \"\"\n  },\n  \"isLive\": false\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/datatables/{tableName}"
+							},
+							"response": []
+						}
+					],
+					"id": "0620dc13-b45c-444f-8c87-aaa9d012c8b0"
+				},
+				{
+					"name": "Columns",
+					"item": [],
+					"id": "ab8d1b15-0ea0-4161-a1ff-36772a440d6e"
+				},
+				{
+					"name": "Data",
+					"item": [
+						{
+							"name": "Get Data Table Data",
+							"id": "57accff3-ab88-4a3b-bf19-2e37cbdd6295",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/adminCustomCustomers?onlyData=true",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"adminCustomCustomers"
+									],
+									"query": [
+										{
+											"key": "onlyData",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data Table Row",
+							"id": "a66ae58b-214c-40b8-8927-b5077f0bb650",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/{rowId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Clear Data Table Data",
+							"id": "a0c6fc0d-f57d-4eea-9c76-0dcc1b105b07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/actions/clearData"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Data Table Row",
+							"id": "de5300ea-3c77-4df0-a14a-cd98e7c9c961",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Data Table Row",
+							"id": "3945111a-9bd7-40f9-a4a6-b8ad3b748680",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/{rowId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Data Table Rows",
+							"id": "50a5024c-fd49-4de6-8939-cc2191927a55",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/actions/deleteRows"
+							},
+							"response": []
+						},
+						{
+							"name": "Search Data Tables",
+							"id": "98d1d633-354e-4ebc-be2f-4c76629c8c2e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/datatables/actions/getQueryStatistics"
+							},
+							"response": []
+						},
+						{
+							"name": "Synchronize Data Table Rows",
+							"id": "3254a243-a376-4336-ae81-5fff791bee65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/actions/synchronize"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Data Table Row",
+							"id": "f319bee8-245a-4707-a008-730c1b867526",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/adminCustom{tableName}/{rowId}"
+							},
+							"response": []
+						}
+					],
+					"id": "628b89f2-7e10-41dd-b801-624d7a9f8c14"
+				},
+				{
+					"name": "Folders",
+					"item": [],
+					"id": "fe10fb3b-547f-4a83-8c83-4ff5077e3599"
+				},
+				{
+					"name": "Deployed Data",
+					"item": [],
+					"id": "1341596b-20b7-47cd-ba71-b3df4c947029"
+				}
+			],
+			"id": "a3de71be-09d8-4ac8-8ce9-4759e7f657b5"
+		},
+		{
+			"name": "Parts Administration",
+			"item": [
+				{
+					"name": "Get All Parts",
+					"id": "c79cb2d6-14d3-4e39-afba-4a17511c99e5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Part",
+					"id": "433f69cb-69a8-4c9c-b15e-ea3299d9b394",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Part",
+					"id": "ec200173-068e-447d-b86d-1dc99bdf8bba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Part",
+					"id": "f2727abc-a311-4b21-837e-a14d406dd9e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Part",
+					"id": "0bd5e76b-b4e3-4026-87c1-4675941813ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Part Metadata Action",
+					"id": "da82db6c-9be3-497a-9663-c21a1e51a6de",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/partSetups/actions/getPartMetadata"
+					},
+					"response": []
+				}
+			],
+			"id": "68e61fb5-0243-4d95-acae-0452585856a8"
+		},
+		{
+			"name": "Pricing Administration",
+			"item": [
+				{
+					"name": "Price Models",
+					"item": [
+						{
+							"name": "Get All Price Models",
+							"id": "0e148849-dba7-4169-8212-d06562a30a39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/pricingSetup/models",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"pricingSetup",
+										"models"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "finder",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "onlyData",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "orderby",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "totalResults",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Price Model",
+							"id": "b1c12bf5-e390-482a-b1d5-04bcb8061c02",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"pricingSetup",
+										"models",
+										"{modelVarName}"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Pricing Data for a Price Model",
+							"id": "925688ac-8a14-4a9d-ba6f-96d0d46298c9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/pricingSetup/models/basePricingModel/data?onlyData=true",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"pricingSetup",
+										"models",
+										"basePricingModel",
+										"data"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "finder",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "onlyData",
+											"value": "true"
+										},
+										{
+											"key": "orderby",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "totalResults",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Price Model",
+							"id": "d3eba616-983f-48d8-90a3-69f19b729719",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Example New Price Model\",\n  \"variableName\": \"exampleNewPriceModel\",\n  \"conditionType\": \"alwaysTrue\",\n  \"valueType\": \"discountPercent\",\n  \"dynamicPricingType\": \"tiered\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models"
+							},
+							"response": []
+						},
+						{
+							"name": "Add Pricing Data for a Price Model",
+							"id": "e5246e86-d19f-4fc1-84a0-70546e37e949",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Sample Request Body - Part Item Example\n{\n  \"id\": -1,\n  \"partNumber\": \"part20\",\n  \"rangeFrom\": 0,\n  \"rangeTo\": 25,\n  \"prices\": {\n    \"ALL\": \"0\",\n    \"EUR\": \"0\",\n    \"CAD\": \"0\",\n    \"USD\": \"9\",\n    \"CNY\": \"0\"\n  }\n}\n\n//Sample Request Body - BOM Item Example\n{\n  \"id\": -1,\n  \"bomItemVariableName\": \"bomItem13\",\n  \"rootBomItemVariableName\": \"root13\",\n  \"bomItemName\": \"bomItemName13\",\n  \"rootBomItemName\": \"rootBomItemName13\",\n  \"prices\": {\n    \"ALL\": \"0\",\n    \"EUR\": \"0\",\n    \"CAD\": \"0\",\n    \"USD\": \"1.1\",\n    \"CNY\": \"0\"\n  }\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}/data"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Price Model",
+							"id": "1064ca39-ddcb-41a3-be5e-d354efd6b366",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Pricing Data from a Price Model",
+							"id": "c6d43079-895e-49ba-99dd-14e64c85b4ce",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}/data/{id}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Price Models",
+							"id": "06feb1ea-cd1c-42a4-8ce1-ee50a2fc67ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//There are three operations included in this example:\n//\n//Add the new Volume Discount Pricing model \"volumeDiscountPricing\"\n//Replace the \"configSMS\" description\n//Remove the \"test\" model\n\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"name\": \"Volume Discount Pricing\",\n      \"variableName\": \"volumeDiscountPricing\",\n      \"dynamicPricingType\": \"volume\",\n      \"valueType\": \"discountAmount\",\n      \"description\": \"This price model provides a volume discount.\"\n    }\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/configSMS\",\n    \"value\": {\n      \"description\": \"This price model applies discounts based upon the low or medium text messaging services.\"\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/test\"\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Price Model",
+							"id": "7ffb0397-6530-4f2d-b24d-ea68c9b4196c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"conditionType\": \"simple\",\n  \"simpleConditions\": {\n    \"ruleExpression\": \"1\",\n    \"simpleConditionRows\": [{\n        \"index\": 1,\n        \"variableName\": \"oRCL_pRC_quantity\",\n        \"displayName\": \"Quantity\",\n        \"operator\": \"GREATER_THAN\",\n        \"value\": \"10\"\n      }\n    ]\n  }\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pricing Data for a Price Model",
+							"id": "d2b51327-d513-4500-8b37-2b0eda46ae91",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Sample Request Body - Part Item Example\n[{\n    \"op\": \"replace\",\n    \"path\": \"/3022746127\",\n    \"value\": {\n      \"partNumber\": \"part90\",\n      \"prices\": {\n        \"EUR\": \"2\",\n        \"CNY\": \"1.75\"\n      }\n    }\n  }\n]\n\n//Sample Request Body - BOM Item Examples\n//Update 'replace' Example\n[{\n    \"op\": \"replace\",\n    \"path\": \"/36732751\",\n    \"value\": {\n      \"bomItemVariableName\": \"bomItem13\",\n      \"rootBomItemVariableName\": \"root13\",\n      \"prices\": {\n        \"ALL\": \"0\",\n        \"EUR\": \"0\",\n        \"CAD\": \"0\",\n        \"USD\": \"5.1\",\n        \"CNY\": \"0\"\n      }\n    }\n  }\n]\n\n//Add Example\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"id\": -1,\n      \"partNumber\": \"part10\",\n      \"bomItemVariableName\": \"bomItem12\",\n      \"rootBomItemVariableName\": \"root12\",\n      \"bomItemName\": \"bomItemName12\",\n      \"rootBomItemName\": \"rootBomItemName12\",\n      \"rangeFrom\": 20,\n      \"rangeTo\": 25,\n      \"prices\": {\n        \"ALL\": \"0\",\n        \"EUR\": \"0\",\n        \"CAD\": \"0\",\n        \"USD\": \"1.1\",\n        \"CNY\": \"0\"\n      }\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/models/{modelVarName}/data"
+							},
+							"response": []
+						}
+					],
+					"id": "1ff1cd27-1a22-456e-a34c-84f04452ed93"
+				},
+				{
+					"name": "Pricing Attributes",
+					"item": [
+						{
+							"name": "Get All Pricing Attributes",
+							"id": "f496e4aa-bcec-47e7-aabd-cb0e190bf5bd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Pricing Attribute",
+							"id": "9eae6887-573a-46e1-824d-d96c2e77c028",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Attribute Mappings for a Pricing Attribute",
+							"id": "b6aa5a25-c8fd-4653-a0e6-56323b3a383f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Pricing Attribute",
+							"id": "15028464-8fc4-4949-a47f-4ee76acd5f2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"test\",\n  \"variableName\": \"testAttribute\",\n  \"dataType\": \"String\",\n  \"attributeLevel\": \"Line\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Add an Attribute Mapping for a Pricing Attribute",
+							"id": "716d8017-d83f-4b4b-b6ce-0cdef931ca75",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataSourceProviderVariableName\": \"oraclecpqo\",\n  \"variableName\": \"cH_float_convert\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Pricing Attribute",
+							"id": "f3eef9ad-95ab-4819-9a78-40d7b9373a2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pricing Attributes",
+							"id": "dd8d6a88-96ed-45ab-a073-05e9bd8281c6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//There are three operations included in this example:\n//\n//Add the new line-level attribute \"testAdd\"\n//Remove the \"_quantityValidator\" attribute\n//Replace the \"myAttribute\" Name\n\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"name\": \"New\",\n      \"variableName\": \"testAdd\",\n      \"dataType\": \"boolean\",\n      \"attributeLevel\": \"line\"\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/_quantityValidator\",\n    \"value\": {\n      \"variableName\": \"_quantityValidator\"\n    }\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/myAttribute\",\n    \"value\": {\n      \"name\": \"Updated Attribute Name\",\n      \"variableName\": \"myAttribute\"\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Pricing Attribute",
+							"id": "8de61e84-7521-457c-84bc-0a0fb7f9e853",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"name\": \"New pricing attribute name\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Attribute Mappings for a Pricing Attribute",
+							"id": "c661d93a-1dfd-48b1-9042-13a0dc8f16f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Sample Request Body - Add Example\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"dataSourceProviderVariableName\": \"CONFIG_ATTRS_test3\",\n      \"variableName\": \"textField1\",\n      \"orderNumber\": 4\n    }\n  }\n]\n\n//Sample Request Body - Remove Example\n[{\n    \"op\": \"remove\",\n    \"path\": \"/3022752151\",\n    \"value\": {}\n  }\n]\n\n//Sample Request Body - Replace Example\n[{\n    \"op\": \"replace\",\n    \"path\": \"/3022752151\",\n    \"value\": {\n      \"orderNumber\": 1\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						}
+					],
+					"id": "f7f1bd4e-c987-45f9-9301-d1c464696eda"
+				},
+				{
+					"name": "Pricing Rules",
+					"item": [
+						{
+							"name": "Get All Pricing Rules",
+							"id": "7eae784a-2d1a-483f-bc61-0ccd63b581f5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules"
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Pricing Rule",
+							"id": "716aa40c-4a3e-4c22-a666-713c53c47421",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Customer-Specific Conditions for a Pricing Rule",
+							"id": "eba7fe8d-3458-4ce8-a884-0fa6d81b69d4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions"
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Customer-Specific Condition for a Pricing Rule",
+							"id": "594193a2-482e-4b0f-b54a-f144d6eb5368",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions/{conditionId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Price Models Linked to a Pricing Rule",
+							"id": "f249f7dd-8ae8-450f-b3cc-919bb32ba709",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/rulemodels"
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Pricing Rule",
+							"id": "6d64a6b4-d157-49da-a1d0-e197a03d068d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dateModified\": \"2022-12-02T17:02:43Z\",\n  \"dateAdded\": \"2022-12-02T17:00:47Z\",\n  \"name\": \"New Pricing Rule\",\n  \"variableName\": \"newPricingRule\",\n  \"ruleConditionType\": \"simple\",\n  \"active\": true,\n  \"simpleConditions\": {\n    \"ruleExpression\": \"1\",\n    \"simpleConditionRows\": [{\n        \"index\": 1,\n        \"variableName\": \"itemQuantity\",\n        \"displayName\": \"Item Quantity\",\n        \"operator\": \"GREATER_THAN_EQUAL_TO\",\n        \"value\": \"10.0\"\n      }\n    ]\n  }\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules"
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Customer-Specific Condition for a Pricing Rule",
+							"id": "24b2f9fe-996e-43e9-ad1f-16d5bd38a89c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"active\": true,\n  \"customerId\": \"1001\",\n  \"customerName\": \"ABC Solutions, Inc.\",\n  \"startDate\": \"2023-01-01T06:00:00Z\",\n  \"endDate\": \"2023-01-31T06:00:00Z\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Pricing Rule",
+							"id": "2f132af2-c422-4824-a5b2-e8f192f0aabc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Customer-Specific Condition from a Pricing Rule",
+							"id": "a593bcfe-bb69-4db4-88d1-c1430b1d10ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions/{conditionId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pricing Rules",
+							"id": "a0975eb7-355c-4d64-b0cc-52aa4371ef7f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  [{\n      \"op\": \"add\",\n      \"path\": \"/\",\n      \"value\": {\n        \"active\": true,\n        \"name\": \"US Enterprise Pricing\",\n        \"variableName\": \"US_enterprise_pricing_rule\",\n        \"startDate\": \"2021-04-23T18:25:43.511Z\",\n        \"endDate\": \"2032-04-23T18:25:43.511Z\",\n        \"description\": \"Pricing rule for U.S. enterprise customers\"\n      }\n    }, {\n      \"op\": \"remove\",\n      \"path\": \"/US_enterprise_pricing_rule_dummy\"\n    }, {\n      \"op\": \"replace\",\n      \"path\": \"/Enterprise_pricing_new\" \"value\": {\n        \"orderNumber\": 3\n      }\n    }\n  ]\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Pricing Rule",
+							"id": "e1129328-dd18-458a-af34-2f4eccaf503a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"active\": false,\n  \"name\": \"US Enterprise Pricing (Inactive)\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer-Specific Conditions for a Pricing Rule",
+							"id": "c40459c0-0c11-4e30-b4d3-019e3a53970c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"active\": true,\n      \"customerId\": \"usEnterprisePricing1\",\n      \"startDate\": \"2021-04-23T18:25:43.511Z\",\n      \"endDate\": \"2032-04-23T18:25:43.511Z\"\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/39854321\"\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/13457765\",\n    \"value\": {\n      \"endDate\": null\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Price Models Linked to a Pricing Rule",
+							"id": "db5f84be-a59f-4ce6-a51d-2db7238dfc16",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"startDate\": \"2023-01-23T18:25:43.511Z\",\n  \"endDate\": \"2024-01-23T18:25:43.511Z\"\n}\n\n"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/customerSpecificConditions/{conditionId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Linked Price Model for a Pricing Rule",
+							"id": "5c51ac1e-3de6-491f-8fd9-8df66d7c1b69",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"variableName\": \"absolutePrice\"\n    }\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/configSMS\",\n    \"value\": {\n      \"orderNumber\": 1\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/subscriptionCharges\"\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/rulemodels"
+							},
+							"response": []
+						},
+						{
+							"name": "Link a Price Model to a Pricing Rule",
+							"id": "e32c0e6e-20cd-44d5-831f-119244106fc7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"variableName\": \"tierDiscountPricing\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/ruleModels"
+							},
+							"response": []
+						},
+						{
+							"name": "Unlink a Price Model from a Pricing Rule",
+							"id": "511f4c7c-75ac-4221-8ebf-4b4635e05c8e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/rules/{ruleVarName}/rulemodels/{modelVarName}"
+							},
+							"response": []
+						}
+					],
+					"id": "3b4f5d11-dad9-4c25-b61d-407b52ddb659"
+				},
+				{
+					"name": "Pricing Engine Lookups",
+					"item": [
+						{
+							"name": "Get Lookups for All Accounts",
+							"id": "bb61d7f6-c0a7-487a-b4d4-41c4c06a0029",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for an Account",
+							"id": "e2a0f604-5be8-4464-9cd5-a362b466177c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Supported Currencies",
+							"id": "524ba01b-e3c0-4bb4-9aca-dbf7348eb622",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Supported Currency",
+							"id": "9ebbc753-bb36-4de7-8015-e9e29df6a2fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Supported Data Sources",
+							"id": "b85fda2a-5b26-48ce-9c2b-c18364cf504a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Data Source's Attributes",
+							"id": "ab36b0b9-8ea3-41c0-96fc-2333014e9a5f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources/{dataSourceVarName}/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Parts",
+							"id": "8095a44e-f5c8-46a6-999b-6929fb1228ff",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Part",
+							"id": "60773575-68b9-4d47-9572-11b24669edb0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Simple Condition Attributes",
+							"id": "c5e328d2-ae42-4612-97c0-bdbb8821625c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/simpleConditionAttributes"
+							},
+							"response": []
+						}
+					],
+					"id": "e907ff96-8c39-4de1-9083-b342edccc897"
+				}
+			],
+			"id": "e9e9dfad-40b8-4ea5-9324-7c268b23d52b"
+		},
+		{
+			"name": "Get Company Information",
+			"item": [
+				{
+					"name": "Get Company Information",
+					"id": "4622d533-346e-4066-b77d-2b935c31194c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/zip",
+								"type": "text"
+							}
+						],
+						"url": "{{Site URL}}{{Rest Version}}/adminMeta"
+					},
+					"response": []
+				}
+			],
+			"id": "99456caa-007f-436c-9d77-b822685cc32b"
+		},
+		{
+			"name": "Flows",
+			"item": [
+				{
+					"name": "Asset Upload Flow",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
+										],
+										"type": "text/javascript",
+										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
+									}
+								}
+							],
+							"id": "f9683f72-93a9-46a1-9087-3f0e133bdaae",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Add to Transaction",
+							"id": "9060e5a5-4279-4905-9f86-784cc398aee6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [\n        {\n            \"productFamily\": \"visionServer\",\n            \"productLine\": \"servers\",\n            \"model\": \"AT2151000\",\n            \"configData\": {\n                \"processorQuantity\": {\n                    \"value\": 1,\n                    \"displayValue\": \"1\"\n                },\n                \"rAMStickMaximum\": 8,\n                \"hDDSlots\": 5,\n                \"currencyConfigExample\": null,\n                \"rAMItemNumberForBOMTable\": {\n                    \"value\": \"CM2151030\",\n                    \"displayValue\": \"CM2151030\"\n                },\n                \"software\": {\n                    \"value\": \"Oracle Linux\",\n                    \"displayValue\": \"Oracle Linux\"\n                },\n                \"modifyServiceDetails\": false,\n                \"professionalConsulting\": {\n                    \"items\": []\n                },\n                \"dataCap\": true,\n                \"iOSlots\": 4,\n                \"serviceCounter\": null,\n                \"rAMStickMinimum\": 4,\n                \"dateConfigExample\": null,\n                \"transceivers\": 0,\n                \"dVDRWDrive\": false,\n                \"rAMCapacityForBOM\": \"4\",\n                \"rAMCapacity\": {\n                    \"value\": \"32 GB RAM (4 x 8GB)\",\n                    \"displayValue\": \"32 GB RAM (4 x 8GB)\"\n                },\n                \"powerCord\": {\n                    \"value\": \"Power Cord Length 2M\",\n                    \"displayValue\": \"2M\"\n                },\n                \"internetConnectionSpeed\": {\n                    \"value\": {\n                        \"value\": \"750 MBs\",\n                        \"displayValue\": \"750 MBs\"\n                    },\n                    \"locked\": false\n                },\n                \"hardDrive\": {\n                    \"value\": \"300 GB HDD\",\n                    \"displayValue\": \"300 GB HDD\"\n                },\n                \"internetConnection\": {\n                    \"value\": {\n                        \"value\": \"Fiber\",\n                        \"displayValue\": \"Fiber\"\n                    },\n                    \"locked\": false\n                },\n                \"iOCards\": 0,\n                \"applicationCounter\": null,\n                \"powerCableChoice\": false,\n                \"chassis\": {\n                    \"value\": \"Ultra Server X7-4: 3 Rack Unit\",\n                    \"displayValue\": \"3 Rack Unit\"\n                },\n                \"monitoring\": {\n                    \"items\": []\n                },\n                \"processor\": {\n                    \"value\": \"8-core 2.4 GHz Processor\",\n                    \"displayValue\": \"8-core 2.4 GHz Processor\"\n                },\n                \"cloudStorage\": {\n                    \"value\": {\n                        \"value\": \"1 TB\",\n                        \"displayValue\": \"1 TB\"\n                    },\n                    \"locked\": false\n                },\n                \"servicePlan\": {\n                    \"value\": \"Gold Service\",\n                    \"displayValue\": \"Gold Service\"\n                },\n                \"oSLicenses\": 1,\n                \"systemAssistant4GBUSB\": false,\n                \"serverLevel\": {\n                    \"value\": \"None\",\n                    \"displayValue\": \"Open\"\n                }\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction 2",
+							"id": "0bfe92aa-2a52-4abf-a5fa-bb14a8ba7fcd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset",
+							"id": "df783398-7df5-4c1b-81f3-dac4fa7eb91f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
+							},
+							"response": []
+						}
+					],
+					"id": "3a86a554-fde6-401a-8461-44915fb31e51"
+				},
+				{
+					"name": "Bulk Asset Upload Flow",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
+										],
+										"type": "text/javascript",
+										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
+									}
+								}
+							],
+							"id": "2d9823e1-837b-4c1f-acdf-6dbc924ac72a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Add to Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "074d5893-61a0-40d1-b056-2dbef7478f96",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5abf536a-5c05-47a6-85f1-d64855df8ffc",
+										"exec": [
+											"// Retrieve the \"Items\" object from the current iteration data",
+											"const items = pm.iterationData.get('Items');",
+											"",
+											"// Stringify the \"Items\" object to make it a string",
+											"const itemsString = JSON.stringify(items);",
+											"",
+											"// Set the stringified \"Items\" object as a variable",
+											"",
+											"pm.variables.set('Items', itemsString);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "007a82c0-cd48-4ab3-a265-d422a63481aa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [{{Items}}]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction 2",
+							"id": "e88bc971-a79a-4ba5-a7df-e80278aaa682",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset",
+							"id": "3bcab36b-bdf3-4610-9495-d9127368cff9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
+							},
+							"response": []
+						}
+					],
+					"id": "8f5c666a-0ce7-42d5-a746-fc5afcbe0f87"
+				},
+				{
+					"name": "File Operations",
+					"item": [
+						{
+							"name": "Export Assets CSV File",
+							"id": "d87d5c0e-8fca-4ec3-ade1-5e6d30b9ab6b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/assets/actions/export"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Exported File",
+							"id": "49c11e93-d120-4710-abc6-392611acfb49",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/files/assets_1709226636355"
+							},
+							"response": []
+						},
+						{
+							"name": "Upload File",
+							"id": "95f1f9e3-959d-4904-b9c7-2d4ef98aca4b",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Media-type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/Users/adrander/Desktop/response.csv"
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/files"
+							},
+							"response": []
+						},
+						{
+							"name": "Import Assets CSV File",
+							"id": "4a476c05-7cb7-482e-869e-93a46d0d95f3",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Prefer",
+										"value": "respond-async",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"fileName\":\"upload_1709226848515\"}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/assets/actions/import"
+							},
+							"response": []
+						},
+						{
+							"name": "Assest Upload Status",
+							"id": "d89df697-9dd1-4b1f-bcf3-b796dcea369d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/asyncTasks/38545824/status",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"asyncTasks",
+										"38545824",
+										"status"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "9d90b5d2-aa12-421d-bc59-6d61a3e7f327"
+				}
+			],
+			"id": "862f1c5e-97e4-45ed-a787-42b26c97933f"
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Get List of Tasks",
+					"id": "29547743-bcc6-4e27-83ab-adca5b14f4c4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/tasks/?q={category:{$in:[13,17,26,51,52]}}",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{category:{$in:[13,17,26,51,52]}}",
+									"description": "The query parameter is required."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task",
+					"id": "adc18334-ed52-46ce-bae8-576c97d07b3c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/tasks/{taskId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Task",
+					"id": "a7699a79-c240-4a77-8b89-4b5b57ea0e4d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/tasks/{taskId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"id": "79c8270f-7363-4bd9-bde2-8e027829b844",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/tasks/{taskId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tasks",
+					"id": "f34a03fd-6277-40db-97a0-9975c71ed531",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"selections\": [\n        {taskId},\n        {taskId},\n        {taskId}\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/tasks/actions/deleteTasks"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task File List",
+					"id": "2b08bebe-2de8-4a18-b4c7-571acd06eaa1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/tasks/{taskId}/files"
+					},
+					"response": []
+				},
+				{
+					"name": "Download a Task File",
+					"id": "a7458dd0-4386-419c-b143-103df32a0bf8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/tasks/{taskId}/files/{fileName}"
+					},
+					"response": []
+				}
+			],
+			"id": "62362df4-e946-4135-a9a9-bb6947200d7c"
+		},
+		{
+			"name": "Favorite",
+			"item": [
+				{
+					"name": "Favorite Process Invocations",
+					"item": [
+						{
+							"name": "Invoke Favorite",
+							"id": "a85f615b-5fbb-4418-9269-0c2c3b222083",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "gey^E4E_3E",
+										"username": "AAnderson"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"variableName\": \"CM_38050064\",\n  \"selections\": [\"38039392\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/start "
+							},
+							"response": []
+						},
+						{
+							"name": "Get Favorite Process Invocations",
+							"id": "4211f04a-908b-448e-b301-2c8d927b4dac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/getProcessInvocations"
+							},
+							"response": []
+						}
+					],
+					"id": "b344c0a8-e0c0-4b4c-a451-4c4c622e69ed"
+				},
+				{
+					"name": "Get User's List of Favorites",
+					"id": "937df85b-fa2d-4e8f-a679-8cc1bbf18c32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Favorite",
+					"id": "cebf34ba-4a8c-4b3a-82b1-2e3cc9c39113",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of the Selected Options from a Favorite",
+					"id": "5ccb4951-4f4a-4126-8498-09c9946692db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites/{rootId}/subItems"
+					},
+					"response": []
+				}
+			],
+			"id": "097c6ce4-14f9-4679-b818-28ff5eace2df"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {
+			"password": "aNH2cWM@LRy9q564LzP&^",
+			"username": "adrian.anderson@oracle.com"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "04a861ed-a618-4a08-8cd2-a1735af57b3e"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "6a5f378d-d56f-4640-827d-5bf9de063410"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Site URL",
+			"value": "https://consulting-build-01.bigmachines.com",
+			"type": "string"
+		},
+		{
+			"key": "Rest Version",
+			"value": "/rest/v16",
+			"type": "string"
+		},
+		{
+			"key": "Buyside ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "Oraclecpqo Commerce Process",
+			"value": "Oraclecpqo",
+			"type": "string"
+		},
+		{
+			"key": "Transaction",
+			"value": "Transaction",
+			"type": "string"
+		},
+		{
+			"key": "bs_ID",
+			"value": ""
+		}
+	]
+}
