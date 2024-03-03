@@ -1,0 +1,106 @@
+{
+    "productFamily": {
+        {productFamily
+        }
+    },
+    "productLine": {
+        {productLine
+        }
+    },
+    "model": {
+        {model
+        }
+    },
+    "configData": {
+        "processorQuantity": {
+            "value": {
+                {processorQuantityValue
+                }
+            },
+            "displayValue": {
+                {processorQuantityDisplayValue
+                }
+            }
+        },
+        "rAMStickMaximum": 8,
+        "hDDSlots": 5,
+        "currencyConfigExample": null,
+        "rAMItemNumberForBOMTable": {
+            "value": "CM2151030",
+            "displayValue": "CM2151030"
+        },
+        "software": {
+            "value": "Oracle Linux",
+            "displayValue": "Oracle Linux"
+        },
+        "modifyServiceDetails": false,
+        "professionalConsulting": {
+            "items": []
+        },
+        "dataCap": true,
+        "iOSlots": 4,
+        "serviceCounter": null,
+        "rAMStickMinimum": 4,
+        "dateConfigExample": null,
+        "transceivers": 0,
+        "dVDRWDrive": false,
+        "rAMCapacityForBOM": "4",
+        "rAMCapacity": {
+            "value": "32 GB RAM (4 x 8GB)",
+            "displayValue": "32 GB RAM (4 x 8GB)"
+        },
+        "powerCord": {
+            "value": "Power Cord Length 2M",
+            "displayValue": "2M"
+        },
+        "internetConnectionSpeed": {
+            "value": {
+                "value": "750 MBs",
+                "displayValue": "750 MBs"
+            },
+            "locked": false
+        },
+        "hardDrive": {
+            "value": "300 GB HDD",
+            "displayValue": "300 GB HDD"
+        },
+        "internetConnection": {
+            "value": {
+                "value": "Fiber",
+                "displayValue": "Fiber"
+            },
+            "locked": false
+        },
+        "iOCards": 0,
+        "applicationCounter": null,
+        "powerCableChoice": false,
+        "chassis": {
+            "value": "Ultra Server X7-4: 3 Rack Unit",
+            "displayValue": "3 Rack Unit"
+        },
+        "monitoring": {
+            "items": []
+        },
+        "processor": {
+            "value": "8-core 2.4 GHz Processor",
+            "displayValue": "8-core 2.4 GHz Processor"
+        },
+        "cloudStorage": {
+            "value": {
+                "value": "1 TB",
+                "displayValue": "1 TB"
+            },
+            "locked": false
+        },
+        "servicePlan": {
+            "value": "Gold Service",
+            "displayValue": "Gold Service"
+        },
+        "oSLicenses": 1,
+        "systemAssistant4GBUSB": false,
+        "serverLevel": {
+            "value": "None",
+            "displayValue": "Open"
+        }
+    }
+}
