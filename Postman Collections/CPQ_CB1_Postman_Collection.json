@@ -1219,7 +1219,7 @@
 							"response": []
 						},
 						{
-							"name": "Save Transaction 2",
+							"name": "Save Transaction",
 							"id": "e88bc971-a79a-4ba5-a7df-e80278aaa682",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1351,7 +1351,7 @@
 							"response": []
 						},
 						{
-							"name": "Save Transaction 2",
+							"name": "Save Transaction",
 							"id": "0510a34d-34ca-4662-be74-6333c4000be3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
