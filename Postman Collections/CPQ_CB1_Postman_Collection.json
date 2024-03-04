@@ -2367,9 +2367,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/favorites"
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"selections\": [\n        38453268\n    ],\n    \"transactionId\": 38547485,\n    \"processVarName\": \"oraclecpqo\",\n    \"actionVarNameForAddFromFavorites\": \"addFromFavorites_c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/favorites/actions/_addToTransaction"
 					},
 					"response": []
 				},
