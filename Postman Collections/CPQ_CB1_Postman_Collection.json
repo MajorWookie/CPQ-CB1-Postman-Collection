@@ -1150,14 +1150,14 @@
 										"id": "e15d0b14-9956-4f21-9189-304e881d8be1",
 										"exec": [
 											"// Retrieve the \"Items\" object from the current iteration data",
-											"const items = pm.iterationData.get('DefaultRequestDate');",
+											"const defaultRequestDate = pm.iterationData.get('DefaultRequestDate');",
 											"",
 											"// Stringify the \"Items\" object to make it a string",
-											"const itemsString = JSON.stringify(defaultRequestDate);",
+											"const defaultRequestDateString = JSON.stringify(defaultRequestDate);",
 											"",
 											"// Set the stringified \"Items\" object as a variable",
 											"",
-											"pm.variables.set('DefaultRequestDate', itemsString);",
+											"pm.variables.set('defaultRequestDate', defaultRequestDateString);",
 											""
 										],
 										"type": "text/javascript"
