@@ -1260,6 +1260,138 @@
 					"id": "8f5c666a-0ce7-42d5-a746-fc5afcbe0f87"
 				},
 				{
+					"name": "Detailed Bulk Asset Upload Flow",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
+										],
+										"type": "text/javascript",
+										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
+									}
+								}
+							],
+							"id": "6cdbe052-71a9-4a0f-948c-f730dc452f1d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Add to Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "074d5893-61a0-40d1-b056-2dbef7478f96",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5abf536a-5c05-47a6-85f1-d64855df8ffc",
+										"exec": [
+											"// Retrieve the \"Items\" object from the current iteration data",
+											"const items = pm.iterationData.get('Items');",
+											"",
+											"// Stringify the \"Items\" object to make it a string",
+											"const itemsString = JSON.stringify(items);",
+											"",
+											"// Set the stringified \"Items\" object as a variable",
+											"",
+											"pm.variables.set('Items', itemsString);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "324bca8f-7d5c-41c8-82e5-31f2854aa45d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [{{Items}}]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction 2",
+							"id": "0510a34d-34ca-4662-be74-6333c4000be3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset",
+							"id": "200d66b0-de4b-4de1-bfe0-e0416fd609f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
+							},
+							"response": []
+						}
+					],
+					"id": "4b89a1a3-7c29-46fb-8c94-f1145cc38b80"
+				},
+				{
 					"name": "File Operations",
 					"item": [
 						{
