@@ -909,6 +909,509 @@
 			"id": "a3de71be-09d8-4ac8-8ce9-4759e7f657b5"
 		},
 		{
+			"name": "Favorite",
+			"item": [
+				{
+					"name": "Favorite Process Invocations",
+					"item": [
+						{
+							"name": "Invoke Favorite",
+							"id": "a85f615b-5fbb-4418-9269-0c2c3b222083",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {
+										"password": "gey^E4E_3E",
+										"username": "AAnderson"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"variableName\": \"CM_38050064\",\n  \"selections\": [\"38039392\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/start "
+							},
+							"response": []
+						},
+						{
+							"name": "Get Favorite Process Invocations",
+							"id": "4211f04a-908b-448e-b301-2c8d927b4dac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/getProcessInvocations"
+							},
+							"response": []
+						}
+					],
+					"id": "b344c0a8-e0c0-4b4c-a451-4c4c622e69ed"
+				},
+				{
+					"name": "Get User's List of Favorites",
+					"id": "937df85b-fa2d-4e8f-a679-8cc1bbf18c32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Favorite to transaction",
+					"id": "1a4c9687-264e-430b-8c1f-a98eb7553461",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"selections\": [\n        38453268\n    ],\n    \"transactionId\": 38547485,\n    \"processVarName\": \"oraclecpqo\",\n    \"actionVarNameForAddFromFavorites\": \"addFromFavorites_c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/favorites/actions/_addToTransaction"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Favorite",
+					"id": "cebf34ba-4a8c-4b3a-82b1-2e3cc9c39113",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of the Selected Options from a Favorite",
+					"id": "5ccb4951-4f4a-4126-8498-09c9946692db",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites/{rootId}/subItems"
+					},
+					"response": []
+				}
+			],
+			"id": "097c6ce4-14f9-4679-b818-28ff5eace2df"
+		},
+		{
+			"name": "Flows",
+			"item": [
+				{
+					"name": "Asset Upload Flow",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
+										],
+										"type": "text/javascript",
+										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
+									}
+								}
+							],
+							"id": "f9683f72-93a9-46a1-9087-3f0e133bdaae",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Add to Transaction",
+							"id": "9060e5a5-4279-4905-9f86-784cc398aee6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [\n        {\n            \"productFamily\": \"visionServer\",\n            \"productLine\": \"servers\",\n            \"model\": \"AT2151000\",\n            \"configData\": {\n                \"processorQuantity\": {\n                    \"value\": 1,\n                    \"displayValue\": \"1\"\n                },\n                \"rAMStickMaximum\": 8,\n                \"hDDSlots\": 5,\n                \"currencyConfigExample\": null,\n                \"rAMItemNumberForBOMTable\": {\n                    \"value\": \"CM2151030\",\n                    \"displayValue\": \"CM2151030\"\n                },\n                \"software\": {\n                    \"value\": \"Oracle Linux\",\n                    \"displayValue\": \"Oracle Linux\"\n                },\n                \"modifyServiceDetails\": false,\n                \"professionalConsulting\": {\n                    \"items\": []\n                },\n                \"dataCap\": true,\n                \"iOSlots\": 4,\n                \"serviceCounter\": null,\n                \"rAMStickMinimum\": 4,\n                \"dateConfigExample\": null,\n                \"transceivers\": 0,\n                \"dVDRWDrive\": false,\n                \"rAMCapacityForBOM\": \"4\",\n                \"rAMCapacity\": {\n                    \"value\": \"32 GB RAM (4 x 8GB)\",\n                    \"displayValue\": \"32 GB RAM (4 x 8GB)\"\n                },\n                \"powerCord\": {\n                    \"value\": \"Power Cord Length 2M\",\n                    \"displayValue\": \"2M\"\n                },\n                \"internetConnectionSpeed\": {\n                    \"value\": {\n                        \"value\": \"750 MBs\",\n                        \"displayValue\": \"750 MBs\"\n                    },\n                    \"locked\": false\n                },\n                \"hardDrive\": {\n                    \"value\": \"300 GB HDD\",\n                    \"displayValue\": \"300 GB HDD\"\n                },\n                \"internetConnection\": {\n                    \"value\": {\n                        \"value\": \"Fiber\",\n                        \"displayValue\": \"Fiber\"\n                    },\n                    \"locked\": false\n                },\n                \"iOCards\": 0,\n                \"applicationCounter\": null,\n                \"powerCableChoice\": false,\n                \"chassis\": {\n                    \"value\": \"Ultra Server X7-4: 3 Rack Unit\",\n                    \"displayValue\": \"3 Rack Unit\"\n                },\n                \"monitoring\": {\n                    \"items\": []\n                },\n                \"processor\": {\n                    \"value\": \"8-core 2.4 GHz Processor\",\n                    \"displayValue\": \"8-core 2.4 GHz Processor\"\n                },\n                \"cloudStorage\": {\n                    \"value\": {\n                        \"value\": \"1 TB\",\n                        \"displayValue\": \"1 TB\"\n                    },\n                    \"locked\": false\n                },\n                \"servicePlan\": {\n                    \"value\": \"Gold Service\",\n                    \"displayValue\": \"Gold Service\"\n                },\n                \"oSLicenses\": 1,\n                \"systemAssistant4GBUSB\": false,\n                \"serverLevel\": {\n                    \"value\": \"None\",\n                    \"displayValue\": \"Open\"\n                }\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction 2",
+							"id": "0bfe92aa-2a52-4abf-a5fa-bb14a8ba7fcd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset",
+							"id": "df783398-7df5-4c1b-81f3-dac4fa7eb91f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
+							},
+							"response": []
+						}
+					],
+					"id": "3a86a554-fde6-401a-8461-44915fb31e51"
+				},
+				{
+					"name": "Bulk Asset Upload Flow",
+					"item": [
+						{
+							"name": "Create Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
+										],
+										"type": "text/javascript",
+										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
+									}
+								}
+							],
+							"id": "2d9823e1-837b-4c1f-acdf-6dbc924ac72a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
+							},
+							"response": []
+						},
+						{
+							"name": "Bulk Add to Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "074d5893-61a0-40d1-b056-2dbef7478f96",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5abf536a-5c05-47a6-85f1-d64855df8ffc",
+										"exec": [
+											"// Retrieve the \"Items\" object from the current iteration data",
+											"const items = pm.iterationData.get('Items');",
+											"",
+											"// Stringify the \"Items\" object to make it a string",
+											"const itemsString = JSON.stringify(items);",
+											"",
+											"// Set the stringified \"Items\" object as a variable",
+											"",
+											"pm.variables.set('Items', itemsString);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "007a82c0-cd48-4ab3-a265-d422a63481aa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [{{Items}}]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+							},
+							"response": []
+						},
+						{
+							"name": "Save Transaction 2",
+							"id": "e88bc971-a79a-4ba5-a7df-e80278aaa682",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Asset",
+							"id": "3bcab36b-bdf3-4610-9495-d9127368cff9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
+							},
+							"response": []
+						}
+					],
+					"id": "8f5c666a-0ce7-42d5-a746-fc5afcbe0f87"
+				},
+				{
+					"name": "File Operations",
+					"item": [
+						{
+							"name": "Export Assets CSV File",
+							"id": "d87d5c0e-8fca-4ec3-ade1-5e6d30b9ab6b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{Site URL}}{{Rest Version}}/assets/actions/export"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Exported File",
+							"id": "49c11e93-d120-4710-abc6-392611acfb49",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/files/assets_1709226636355"
+							},
+							"response": []
+						},
+						{
+							"name": "Upload File",
+							"id": "95f1f9e3-959d-4904-b9c7-2d4ef98aca4b",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Media-type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/Users/adrander/Desktop/response.csv"
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/files"
+							},
+							"response": []
+						},
+						{
+							"name": "Import Assets CSV File",
+							"id": "4a476c05-7cb7-482e-869e-93a46d0d95f3",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {},
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Prefer",
+										"value": "respond-async",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"fileName\":\"upload_1709226848515\"}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/assets/actions/import"
+							},
+							"response": []
+						},
+						{
+							"name": "Assest Upload Status",
+							"id": "d89df697-9dd1-4b1f-bcf3-b796dcea369d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/asyncTasks/38545824/status",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"asyncTasks",
+										"38545824",
+										"status"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "9d90b5d2-aa12-421d-bc59-6d61a3e7f327"
+				}
+			],
+			"id": "862f1c5e-97e4-45ed-a787-42b26c97933f"
+		},
+		{
+			"name": "Get Company Information",
+			"item": [
+				{
+					"name": "Get Company Information",
+					"id": "4622d533-346e-4066-b77d-2b935c31194c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/zip",
+								"type": "text"
+							}
+						],
+						"url": "{{Site URL}}{{Rest Version}}/adminMeta"
+					},
+					"response": []
+				}
+			],
+			"id": "99456caa-007f-436c-9d77-b822685cc32b"
+		},
+		{
 			"name": "Parts Administration",
 			"item": [
 				{
@@ -1787,394 +2290,6 @@
 			"id": "e9e9dfad-40b8-4ea5-9324-7c268b23d52b"
 		},
 		{
-			"name": "Get Company Information",
-			"item": [
-				{
-					"name": "Get Company Information",
-					"id": "4622d533-346e-4066-b77d-2b935c31194c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/zip",
-								"type": "text"
-							}
-						],
-						"url": "{{Site URL}}{{Rest Version}}/adminMeta"
-					},
-					"response": []
-				}
-			],
-			"id": "99456caa-007f-436c-9d77-b822685cc32b"
-		},
-		{
-			"name": "Flows",
-			"item": [
-				{
-					"name": "Asset Upload Flow",
-					"item": [
-						{
-							"name": "Create Transaction",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
-										],
-										"type": "text/javascript",
-										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
-									}
-								}
-							],
-							"id": "f9683f72-93a9-46a1-9087-3f0e133bdaae",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
-							},
-							"response": []
-						},
-						{
-							"name": "Bulk Add to Transaction",
-							"id": "9060e5a5-4279-4905-9f86-784cc398aee6",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [\n        {\n            \"productFamily\": \"visionServer\",\n            \"productLine\": \"servers\",\n            \"model\": \"AT2151000\",\n            \"configData\": {\n                \"processorQuantity\": {\n                    \"value\": 1,\n                    \"displayValue\": \"1\"\n                },\n                \"rAMStickMaximum\": 8,\n                \"hDDSlots\": 5,\n                \"currencyConfigExample\": null,\n                \"rAMItemNumberForBOMTable\": {\n                    \"value\": \"CM2151030\",\n                    \"displayValue\": \"CM2151030\"\n                },\n                \"software\": {\n                    \"value\": \"Oracle Linux\",\n                    \"displayValue\": \"Oracle Linux\"\n                },\n                \"modifyServiceDetails\": false,\n                \"professionalConsulting\": {\n                    \"items\": []\n                },\n                \"dataCap\": true,\n                \"iOSlots\": 4,\n                \"serviceCounter\": null,\n                \"rAMStickMinimum\": 4,\n                \"dateConfigExample\": null,\n                \"transceivers\": 0,\n                \"dVDRWDrive\": false,\n                \"rAMCapacityForBOM\": \"4\",\n                \"rAMCapacity\": {\n                    \"value\": \"32 GB RAM (4 x 8GB)\",\n                    \"displayValue\": \"32 GB RAM (4 x 8GB)\"\n                },\n                \"powerCord\": {\n                    \"value\": \"Power Cord Length 2M\",\n                    \"displayValue\": \"2M\"\n                },\n                \"internetConnectionSpeed\": {\n                    \"value\": {\n                        \"value\": \"750 MBs\",\n                        \"displayValue\": \"750 MBs\"\n                    },\n                    \"locked\": false\n                },\n                \"hardDrive\": {\n                    \"value\": \"300 GB HDD\",\n                    \"displayValue\": \"300 GB HDD\"\n                },\n                \"internetConnection\": {\n                    \"value\": {\n                        \"value\": \"Fiber\",\n                        \"displayValue\": \"Fiber\"\n                    },\n                    \"locked\": false\n                },\n                \"iOCards\": 0,\n                \"applicationCounter\": null,\n                \"powerCableChoice\": false,\n                \"chassis\": {\n                    \"value\": \"Ultra Server X7-4: 3 Rack Unit\",\n                    \"displayValue\": \"3 Rack Unit\"\n                },\n                \"monitoring\": {\n                    \"items\": []\n                },\n                \"processor\": {\n                    \"value\": \"8-core 2.4 GHz Processor\",\n                    \"displayValue\": \"8-core 2.4 GHz Processor\"\n                },\n                \"cloudStorage\": {\n                    \"value\": {\n                        \"value\": \"1 TB\",\n                        \"displayValue\": \"1 TB\"\n                    },\n                    \"locked\": false\n                },\n                \"servicePlan\": {\n                    \"value\": \"Gold Service\",\n                    \"displayValue\": \"Gold Service\"\n                },\n                \"oSLicenses\": 1,\n                \"systemAssistant4GBUSB\": false,\n                \"serverLevel\": {\n                    \"value\": \"None\",\n                    \"displayValue\": \"Open\"\n                }\n            }\n        }\n    ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
-							},
-							"response": []
-						},
-						{
-							"name": "Save Transaction 2",
-							"id": "0bfe92aa-2a52-4abf-a5fa-bb14a8ba7fcd",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
-							},
-							"response": []
-						},
-						{
-							"name": "Update Asset",
-							"id": "df783398-7df5-4c1b-81f3-dac4fa7eb91f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
-							},
-							"response": []
-						}
-					],
-					"id": "3a86a554-fde6-401a-8461-44915fb31e51"
-				},
-				{
-					"name": "Bulk Asset Upload Flow",
-					"item": [
-						{
-							"name": "Create Transaction",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"var jsonData = JSON.parse(responseBody);",
-											"pm.collectionVariables.set(\"Buyside ID\", jsonData.documents.bs_id);"
-										],
-										"type": "text/javascript",
-										"id": "43e6b2fd-4588-4f33-9b24-71a6a94cd6f8"
-									}
-								}
-							],
-							"id": "2d9823e1-837b-4c1f-acdf-6dbc924ac72a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2020-01-01\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
-							},
-							"response": []
-						},
-						{
-							"name": "Bulk Add to Transaction",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "074d5893-61a0-40d1-b056-2dbef7478f96",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "5abf536a-5c05-47a6-85f1-d64855df8ffc",
-										"exec": [
-											"// Retrieve the \"Items\" object from the current iteration data",
-											"const items = pm.iterationData.get('Items');",
-											"",
-											"// Stringify the \"Items\" object to make it a string",
-											"const itemsString = JSON.stringify(items);",
-											"",
-											"// Set the stringified \"Items\" object as a variable",
-											"",
-											"pm.variables.set('Items', itemsString);",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "007a82c0-cd48-4ab3-a265-d422a63481aa",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"bsId\": {{Buyside ID}},\n    \"documentId\": 36893204,\n    \"items\": [{{Items}}]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
-							},
-							"response": []
-						},
-						{
-							"name": "Save Transaction 2",
-							"id": "e88bc971-a79a-4ba5-a7df-e80278aaa682",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/cleanSave_t"
-							},
-							"response": []
-						},
-						{
-							"name": "Update Asset",
-							"id": "3bcab36b-bdf3-4610-9495-d9127368cff9",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{{Buyside ID}}/actions/updateAsset"
-							},
-							"response": []
-						}
-					],
-					"id": "8f5c666a-0ce7-42d5-a746-fc5afcbe0f87"
-				},
-				{
-					"name": "File Operations",
-					"item": [
-						{
-							"name": "Export Assets CSV File",
-							"id": "d87d5c0e-8fca-4ec3-ade1-5e6d30b9ab6b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": "{{Site URL}}{{Rest Version}}/assets/actions/export"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Exported File",
-							"id": "49c11e93-d120-4710-abc6-392611acfb49",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/files/assets_1709226636355"
-							},
-							"response": []
-						},
-						{
-							"name": "Upload File",
-							"id": "95f1f9e3-959d-4904-b9c7-2d4ef98aca4b",
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {},
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Media-type",
-										"value": "application/json",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"body": {
-									"mode": "file",
-									"file": {
-										"src": "/Users/adrander/Desktop/response.csv"
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/files"
-							},
-							"response": []
-						},
-						{
-							"name": "Import Assets CSV File",
-							"id": "4a476c05-7cb7-482e-869e-93a46d0d95f3",
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {},
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Prefer",
-										"value": "respond-async",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"fileName\":\"upload_1709226848515\"}"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/assets/actions/import"
-							},
-							"response": []
-						},
-						{
-							"name": "Assest Upload Status",
-							"id": "d89df697-9dd1-4b1f-bcf3-b796dcea369d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{Site URL}}{{Rest Version}}/asyncTasks/38545824/status",
-									"host": [
-										"{{Site URL}}{{Rest Version}}"
-									],
-									"path": [
-										"asyncTasks",
-										"38545824",
-										"status"
-									],
-									"query": [
-										{
-											"key": "",
-											"value": null,
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"id": "9d90b5d2-aa12-421d-bc59-6d61a3e7f327"
-				}
-			],
-			"id": "862f1c5e-97e4-45ed-a787-42b26c97933f"
-		},
-		{
 			"name": "Task",
 			"item": [
 				{
@@ -2295,121 +2410,6 @@
 				}
 			],
 			"id": "62362df4-e946-4135-a9a9-bb6947200d7c"
-		},
-		{
-			"name": "Favorite",
-			"item": [
-				{
-					"name": "Favorite Process Invocations",
-					"item": [
-						{
-							"name": "Invoke Favorite",
-							"id": "a85f615b-5fbb-4418-9269-0c2c3b222083",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": {
-										"password": "gey^E4E_3E",
-										"username": "AAnderson"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"variableName\": \"CM_38050064\",\n  \"selections\": [\"38039392\"]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/start "
-							},
-							"response": []
-						},
-						{
-							"name": "Get Favorite Process Invocations",
-							"id": "4211f04a-908b-448e-b301-2c8d927b4dac",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/favorites/actions/getProcessInvocations"
-							},
-							"response": []
-						}
-					],
-					"id": "b344c0a8-e0c0-4b4c-a451-4c4c622e69ed"
-				},
-				{
-					"name": "Get User's List of Favorites",
-					"id": "937df85b-fa2d-4e8f-a679-8cc1bbf18c32",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/favorites"
-					},
-					"response": []
-				},
-				{
-					"name": "Add Favorite to transaction",
-					"id": "1a4c9687-264e-430b-8c1f-a98eb7553461",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"selections\": [\n        38453268\n    ],\n    \"transactionId\": 38547485,\n    \"processVarName\": \"oraclecpqo\",\n    \"actionVarNameForAddFromFavorites\": \"addFromFavorites_c\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{Site URL}}{{Rest Version}}/favorites/actions/_addToTransaction"
-					},
-					"response": []
-				},
-				{
-					"name": "Get a Favorite",
-					"id": "cebf34ba-4a8c-4b3a-82b1-2e3cc9c39113",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/favorites/{id}"
-					},
-					"response": []
-				},
-				{
-					"name": "Get List of the Selected Options from a Favorite",
-					"id": "5ccb4951-4f4a-4126-8498-09c9946692db",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/favorites/{rootId}/subItems"
-					},
-					"response": []
-				}
-			],
-			"id": "097c6ce4-14f9-4679-b818-28ff5eace2df"
 		}
 	],
 	"auth": {
