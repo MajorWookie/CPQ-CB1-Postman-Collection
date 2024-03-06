@@ -2588,15 +2588,15 @@
 	"auth": {
 		"type": "basic",
 		"basic": {
-			"password": "aNH2cWM@LRy9q564LzP&^",
-			"username": "adrian.anderson@oracle.com"
+			"username": "AAnderson",
+			"password": "aNH2cWM@LRy9q564LzP&^"
 		}
 	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e36120c5-b5c1-4673-9b84-9d0fc26a13eb",
+				"id": "afdec7aa-39b2-42e3-bf7f-306c76c90c9f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2606,7 +2606,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "002d01f6-fcc8-434f-b623-6b08fbe287c2",
+				"id": "b07a9081-b9fd-4b12-a5e5-0c03d204c38a",
 				"type": "text/javascript",
 				"exec": [
 					""
