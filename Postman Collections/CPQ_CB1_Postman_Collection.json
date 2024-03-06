@@ -867,8 +867,30 @@
 							"response": []
 						},
 						{
-							"name": "Synchronize Data Table Rows",
+							"name": "Synchronize Customers Data Table Rows",
 							"id": "3254a243-a376-4336-ae81-5fff791bee65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"items\": [\n            {\n                \"Customer\": \"test1\",\n                \"_sync_action\": \"create\"\n            },\n            {\n                \"Customer\": \"test2\",\n                \"_sync_action\": \"create\"\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/adminCustomCustomers/actions/synchronize"
+							},
+							"response": []
+						},
+						{
+							"name": "Synchronize Data Table Rows",
+							"id": "e0bd9058-5bb6-4563-a75d-4a866e183516",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -960,19 +982,6 @@
 					"id": "b344c0a8-e0c0-4b4c-a451-4c4c622e69ed"
 				},
 				{
-					"name": "Get User's List of Favorites",
-					"id": "937df85b-fa2d-4e8f-a679-8cc1bbf18c32",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/favorites"
-					},
-					"response": []
-				},
-				{
 					"name": "Add Favorite to transaction",
 					"id": "1a4c9687-264e-430b-8c1f-a98eb7553461",
 					"protocolProfileBehavior": {
@@ -991,6 +1000,19 @@
 							}
 						},
 						"url": "{{Site URL}}{{Rest Version}}/favorites/actions/_addToTransaction"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's List of Favorites",
+					"id": "937df85b-fa2d-4e8f-a679-8cc1bbf18c32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/favorites"
 					},
 					"response": []
 				},
