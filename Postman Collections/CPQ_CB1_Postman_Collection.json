@@ -259,7 +259,16 @@
 							"request": {
 								"method": "POST",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/actions/_new_transaction"
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"requestedPeriods_c\": 120,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"2023-12-28\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/actions/_new_transaction"
 							},
 							"response": []
 						},
@@ -1173,7 +1182,7 @@
 										"exec": [
 											"// Retrieve the \"Items\" object from the current iteration data",
 											"const defaultRequestDate = pm.iterationData.get('DefaultRequestDate');",
-											"const contractPeriods = pm.iterationData.get('ContractPeriods');",
+											"const requestedPeriods = pm.iterationData.get('RequestedPeriods');",
 											"",
 											"// Stringify the \"DefaultRequestDate\" object to make it a string",
 											"const defaultRequestDateString = JSON.stringify(defaultRequestDate);",
@@ -1181,8 +1190,8 @@
 											"// Set the stringified \"DefaultRequestDate\" object as a variable",
 											"pm.variables.set('defaultRequestDate', defaultRequestDateString);",
 											"",
-											"// Set 'contractPeriods' as an integer variable. No need to stringify.",
-											"pm.variables.set('contractedPeriods', contractPeriods);",
+											"// Set 'requestedPeriods' as an integer variable. No need to stringify.",
+											"pm.variables.set('requestedPeriods', requestedPeriods);",
 											""
 										],
 										"type": "text/javascript"
@@ -1198,7 +1207,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": {{contractedPeriods}},\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": {{defaultRequestDate}}\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"requestedPeriods_c\": {{requestedPeriods}},\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": {{defaultRequestDate}}\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
