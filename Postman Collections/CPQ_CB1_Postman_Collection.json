@@ -1173,14 +1173,15 @@
 										"exec": [
 											"// Retrieve the \"Items\" object from the current iteration data",
 											"const defaultRequestDate = pm.iterationData.get('DefaultRequestDate');",
+											"const contractPeriods = pm.iterationData.get('ContractPeriods');",
 											"",
 											"// Stringify the \"Items\" object to make it a string",
 											"const defaultRequestDateString = JSON.stringify(defaultRequestDate);",
+											"const contractPeriodsString = JSON.stringify(contractPeriods);",
 											"",
 											"// Set the stringified \"Items\" object as a variable",
-											"",
 											"pm.variables.set('defaultRequestDate', defaultRequestDateString);",
-											""
+											"pm.variables.set('defaultRequestDate', contractPeriodsString);"
 										],
 										"type": "text/javascript"
 									}
@@ -1195,7 +1196,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": 60,\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"{{defaultRequestDate}}\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": {{contractedPeriods}},\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"{{defaultRequestDate}}\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1231,7 +1232,6 @@
 											"const itemsString = JSON.stringify(items);",
 											"",
 											"// Set the stringified \"Items\" object as a variable",
-											"",
 											"pm.variables.set('Items', itemsString);",
 											""
 										],
