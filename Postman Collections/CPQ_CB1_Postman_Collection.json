@@ -1182,7 +1182,7 @@
 										"exec": [
 											"// Retrieve the \"Items\" object from the current iteration data",
 											"const defaultRequestDate = pm.iterationData.get('DefaultRequestDate');",
-											"const requestedPeriods = pm.iterationData.get('RequestedPeriods');",
+											"const contractPeriods = pm.iterationData.get('ContractPeriods');",
 											"",
 											"// Stringify the \"DefaultRequestDate\" object to make it a string",
 											"const defaultRequestDateString = JSON.stringify(defaultRequestDate);",
@@ -1190,8 +1190,8 @@
 											"// Set the stringified \"DefaultRequestDate\" object as a variable",
 											"pm.variables.set('defaultRequestDate', defaultRequestDateString);",
 											"",
-											"// Set 'requestedPeriods' as an integer variable. No need to stringify.",
-											"pm.variables.set('requestedPeriods', requestedPeriods);",
+											"// Set 'contractPeriods' as an integer variable. No need to stringify.",
+											"pm.variables.set('contractedPeriods', contractPeriods);",
 											""
 										],
 										"type": "text/javascript"
