@@ -1433,7 +1433,7 @@
 					"id": "4b89a1a3-7c29-46fb-8c94-f1145cc38b80"
 				},
 				{
-					"name": "File Operations",
+					"name": "Asset File Operations",
 					"item": [
 						{
 							"name": "Export Assets CSV File",
