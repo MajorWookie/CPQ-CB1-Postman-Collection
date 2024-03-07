@@ -1182,7 +1182,7 @@
 											"pm.variables.set('defaultRequestDate', defaultRequestDateString);",
 											"",
 											"// Set 'contractPeriods' as an integer variable. No need to stringify.",
-											"pm.variables.set('contractPeriods', contractPeriods);",
+											"pm.variables.set('contractedPeriods', contractPeriods);",
 											""
 										],
 										"type": "text/javascript"
@@ -1198,7 +1198,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": {{contractedPeriods}},\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"{{defaultRequestDate}}\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
+									"raw": "{\n    \"documents\": {\n        \"transactionName_t\": \"Asset Upload Flow from API\",\n        \"transactionType_c\": {\n            \"displayValue\": \"New\",\n            \"value\": \"new\"\n        },\n        \"contractedPeriods_t\": \"{{contractedPeriods}}\",\n        \"customerCompanyName_t\": \"Barnum and Bailey\",\n        \"defaultRequestDate_t\": \"{{defaultRequestDate}}\"\n    },\n    \"_modify_action\": \"cleanSave_t\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
