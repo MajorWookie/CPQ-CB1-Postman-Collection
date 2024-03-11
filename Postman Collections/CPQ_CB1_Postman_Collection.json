@@ -416,6 +416,28 @@
 						"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
 					},
 					"response": []
+				},
+				{
+					"name": "Sys.Config Bulk Add to Transaction",
+					"id": "db5ee7c5-1380-4ac9-a7e6-3e7270efd818",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"bsId\": 38545896,\n    \"documentId\": 36893204,\n    \"items\": [\n        {\n            \"productFamily\": \"visionServer\",\n            \"productLine\": \"servers\",\n            \"model\": \"AT2151000\",\n            \"configData\": {\n                \"processorQuantity\": {\n                    \"value\": 1,\n                    \"displayValue\": \"1\"\n                },\n                \"rAMStickMaximum\": 8,\n                \"hDDSlots\": 5,\n                \"currencyConfigExample\": null,\n                \"rAMItemNumberForBOMTable\": {\n                    \"value\": \"CM2151030\",\n                    \"displayValue\": \"CM2151030\"\n                },\n                \"software\": {\n                    \"value\": \"Oracle Linux\",\n                    \"displayValue\": \"Oracle Linux\"\n                },\n                \"modifyServiceDetails\": false,\n                \"professionalConsulting\": {\n                    \"items\": []\n                },\n                \"dataCap\": true,\n                \"iOSlots\": 4,\n                \"serviceCounter\": null,\n                \"rAMStickMinimum\": 4,\n                \"dateConfigExample\": null,\n                \"transceivers\": 0,\n                \"dVDRWDrive\": false,\n                \"rAMCapacityForBOM\": \"4\",\n                \"rAMCapacity\": {\n                    \"value\": \"32 GB RAM (4 x 8GB)\",\n                    \"displayValue\": \"32 GB RAM (4 x 8GB)\"\n                },\n                \"powerCord\": {\n                    \"value\": \"Power Cord Length 2M\",\n                    \"displayValue\": \"2M\"\n                },\n                \"internetConnectionSpeed\": {\n                    \"value\": {\n                        \"value\": \"750 MBs\",\n                        \"displayValue\": \"750 MBs\"\n                    },\n                    \"locked\": false\n                },\n                \"hardDrive\": {\n                    \"value\": \"300 GB HDD\",\n                    \"displayValue\": \"300 GB HDD\"\n                },\n                \"internetConnection\": {\n                    \"value\": {\n                        \"value\": \"Fiber\",\n                        \"displayValue\": \"Fiber\"\n                    },\n                    \"locked\": false\n                },\n                \"iOCards\": 0,\n                \"applicationCounter\": null,\n                \"powerCableChoice\": false,\n                \"chassis\": {\n                    \"value\": \"Ultra Server X7-4: 3 Rack Unit\",\n                    \"displayValue\": \"3 Rack Unit\"\n                },\n                \"monitoring\": {\n                    \"items\": []\n                },\n                \"processor\": {\n                    \"value\": \"8-core 2.4 GHz Processor\",\n                    \"displayValue\": \"8-core 2.4 GHz Processor\"\n                },\n                \"cloudStorage\": {\n                    \"value\": {\n                        \"value\": \"1 TB\",\n                        \"displayValue\": \"1 TB\"\n                    },\n                    \"locked\": false\n                },\n                \"servicePlan\": {\n                    \"value\": \"Gold Service\",\n                    \"displayValue\": \"Gold Service\"\n                },\n                \"oSLicenses\": 1,\n                \"systemAssistant4GBUSB\": false,\n                \"serverLevel\": {\n                    \"value\": \"None\",\n                    \"displayValue\": \"Open\"\n                }\n            }\n        }\n    ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/config/actions/_bulkAddToTxn"
+					},
+					"response": []
 				}
 			],
 			"id": "38dc584c-cb8b-46bc-8695-cebc10241993"
@@ -437,7 +459,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"criteria\": {\n        \"state\": true,\n        \"fields\": [],\n        \"childDefs\": [\n            {\n                \"name\": \"_setserverArray\"\n            }\n        ]\n    }\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -445,20 +467,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.serverSystem/actions/_configure?onlyData=true",
+									"raw": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_configure?onlyData=true",
 									"host": [
 										"{{Site URL}}{{Rest Version}}"
 									],
 									"path": [
-										"configvisionServer.servers.serverSystem",
+										"configvisionServer.servers.AT2151000",
 										"actions",
 										"_configure"
 									],
 									"query": [
 										{
 											"key": "onlyData",
-											"value": "true",
-											"type": "text"
+											"value": "true"
 										}
 									]
 								}
@@ -511,6 +532,94 @@
 						}
 					],
 					"id": "758ae5cc-19bd-47d8-8464-2c823d76c9fc"
+				},
+				{
+					"name": "Server System",
+					"item": [
+						{
+							"name": "Configure Server Model",
+							"id": "7ba90aaa-6f1c-4ba0-b36a-bb2e84428b2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"criteria\": {\n        \"state\": false,\n        \"fields\": [],\n        \"childDefs\": [\n            {\n                \"name\": \"_setserverArray\"\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.serverSystem/actions/_configure?onlyData=true",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"configvisionServer.servers.serverSystem",
+										"actions",
+										"_configure"
+									],
+									"query": [
+										{
+											"key": "onlyData",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Server Model",
+							"id": "49545b8a-8c3d-4dde-92f2-2787157a793b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cacheInstanceId\": \"\",\n    \"configData\": {},\n    \"criteria\": {\n        //\"state\": true,\n        \"fields\": [],\n        \"childDefs\": []\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_update"
+							},
+							"response": []
+						},
+						{
+							"name": "Load Server Model",
+							"id": "31606d6d-de9c-4c7b-a083-9fcfb8e2f7c1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cacheInstanceId\": \"fssl182rI9fDYriMKcQWkoK9RbKvGwS8ZMKGlZwVGiEK8grSX14xb3RNNdgZJSxo\",\n    \"criteria\": {\n        \"state\": true,\n        \"fields\": [],\n        \"childDefs\": [\n            {}\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_loadData"
+							},
+							"response": []
+						}
+					],
+					"id": "c4b6bab2-9dca-4953-940a-544937281c15"
 				},
 				{
 					"name": "Get BOM Items",
