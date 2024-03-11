@@ -437,14 +437,31 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n    \"criteria\": {\n        \"state\": true,\n        \"fields\": [],\n        \"childDefs\": [\n            {\n                \"name\": \"_setserverArray\"\n            }\n        ]\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_configure"
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.serverSystem/actions/_configure?onlyData=true",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"configvisionServer.servers.serverSystem",
+										"actions",
+										"_configure"
+									],
+									"query": [
+										{
+											"key": "onlyData",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								}
 							},
 							"response": []
 						},
