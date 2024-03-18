@@ -547,7 +547,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"criteria\": {\n        \"state\": false,\n        \"fields\": [],\n        \"childDefs\": [\n            {\n                \"name\": \"_setserverArray\"\n            }\n        ]\n    }\n}",
+									"raw": "{\n    \"criteria\": {\n        \"state\": false,\n        \"fields\": [] //,\n        //\"childDefs\": [\n        //    {\n        //        \"name\": \"_setserverArray\"\n        //}\n        //]\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
