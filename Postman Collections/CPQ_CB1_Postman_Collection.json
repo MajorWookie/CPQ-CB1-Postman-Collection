@@ -545,6 +545,28 @@
 								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/actions/_loadData"
 							},
 							"response": []
+						},
+						{
+							"name": "Get BOM Items",
+							"id": "ed67499c-d418-402f-8c53-d255a3d5ca3c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"cacheInstanceId\": \"zUksYd1av23Ow6ceDsJTJZ4Kx6FtD3J2MJM8qHC4NfR1OO5NEFwOiZmf2G09kTvC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/_bom/actions/getBomItems"
+							},
+							"response": []
 						}
 					],
 					"id": "758ae5cc-19bd-47d8-8464-2c823d76c9fc"
@@ -655,7 +677,7 @@
 								}
 							}
 						},
-						"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/_bom"
+						"url": "{{Site URL}}{{Rest Version}}/configvisionServer.servers.AT2151000/_bom/actions/getBomItems"
 					},
 					"response": []
 				},
