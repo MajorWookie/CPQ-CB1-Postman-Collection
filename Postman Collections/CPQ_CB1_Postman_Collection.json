@@ -207,7 +207,7 @@
 										}
 									}
 								},
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38545967"
+								"url": "{{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38545967"
 							},
 							"response": []
 						},
@@ -220,7 +220,23 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction"
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}"
+									],
+									"query": [
+										{
+											"key": "onlyData",
+											"value": "true",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -246,7 +262,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/{Bsid}/transactionLine"
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{Bsid}/transactionLine"
 							},
 							"response": []
 						},
@@ -306,7 +322,7 @@
 										"type": "text"
 									}
 								],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{oraclecpqoCommerceProcess}}Transaction/38517789/actions/cleanSave_t"
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38517789/actions/cleanSave_t"
 							},
 							"response": []
 						},
