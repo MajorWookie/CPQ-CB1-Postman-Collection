@@ -41,11 +41,6 @@
 			"name": "Asset",
 			"item": [
 				{
-					"name": "Configuration BOM Instance",
-					"item": [],
-					"id": "e2f03412-6431-4f48-9b39-5b4eeb2211ce"
-				},
-				{
 					"name": "Get All Assets",
 					"id": "da5c3abb-b986-441f-8999-5315cbbbae96",
 					"protocolProfileBehavior": {
@@ -75,6 +70,19 @@
 								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configuration Instance",
+					"id": "cc622815-1dd9-48cc-ab28-a49f4ba7ce04",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/configBomInstance/{config_Id}/actions/getConfigBom"
 					},
 					"response": []
 				},
