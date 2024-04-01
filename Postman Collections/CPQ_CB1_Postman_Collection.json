@@ -2668,6 +2668,37 @@
 			"id": "e9e9dfad-40b8-4ea5-9324-7c268b23d52b"
 		},
 		{
+			"name": "User Personalization",
+			"item": [
+				{
+					"name": "Get All User Personalizations",
+					"id": "4dd465bc-e6ba-483d-8ffd-6bf4e7b0aa79",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/userPersonalizations"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User Personalizations",
+					"id": "b0f24142-7248-46a3-b658-46e53ec8686d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "92541f74-7652-4e48-9836-f4de4a8debaa"
+		},
+		{
 			"name": "Task",
 			"item": [
 				{
