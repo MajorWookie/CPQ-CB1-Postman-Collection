@@ -132,6 +132,100 @@
 			"id": "021e6987-9c10-4b21-9ebf-54241c8b9cdb"
 		},
 		{
+			"name": "Asset Copy",
+			"item": [
+				{
+					"name": "Get All Assets",
+					"id": "6008e1ed-78e4-4b9f-97b0-884e36e110dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/assets",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "status",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "_ArraySet_t",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Configuration Instance",
+					"id": "50248625-5e30-4c54-94e9-6d3f27adc1ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/configBomInstance/{config_Id}/actions/getConfigBom"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Asset",
+					"id": "ba8ced88-b689-44a6-bcd6-41eca12153ce",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "{{aAPassword}}",
+								"username": "{{aAUserName}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/assets"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Projected Assets",
+					"id": "cc98c82c-6ca4-4b8d-b11a-e5fb7e5eabdd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\": \"300000016382089\",\n    \"sourceIdentifier\": \"extendedStandardProcess_bmClone_1\",\n    \"criteria\": {\n      \"enableHierarchy\": false,\n      \"orderby\": [\n        \"assetKey:DESC\",\n        \"partNumber:DESC\",\n        \"serviceId:DESC\",\n        \"id:DESC\",\n        \"transactionId:DESC\",\n        \"lineId:DESC\"\n      ]//,\n      //\"q\": \"{$or:[{'assetKey':{$eq:'kgAsset1'}},{'rootAssetKey':{$eq:'kgAsset1'}},{'serviceId':{$eq:null}},{'partNumber':{$eq:'part11'}}]}\"\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/projectedAssets/actions/search"
+					},
+					"response": []
+				}
+			],
+			"id": "5f0a18f6-f719-44f0-8a8d-ea23fe974531"
+		},
+		{
 			"name": "Calculate Price",
 			"item": [
 				{
