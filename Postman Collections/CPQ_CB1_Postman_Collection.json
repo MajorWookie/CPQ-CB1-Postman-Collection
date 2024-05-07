@@ -268,7 +268,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035?expand=all&fields=transactionID_t",
+									"raw": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035?expand=all",
 									"host": [
 										"{{Site URL}}{{Rest Version}}"
 									],
@@ -279,13 +279,12 @@
 									"query": [
 										{
 											"key": "expand",
-											"value": "all",
-											"type": "text"
+											"value": "all"
 										},
 										{
 											"key": "fields",
 											"value": "transactionID_t",
-											"type": "text"
+											"disabled": true
 										},
 										{
 											"key": "fields",
@@ -349,7 +348,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/{Bsid}/transactionLine"
+								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035/transactionLine"
 							},
 							"response": []
 						},
