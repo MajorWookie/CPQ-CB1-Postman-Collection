@@ -267,7 +267,34 @@
 										}
 									}
 								},
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035"
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035?expand=all&fields=transactionID_t",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}",
+										"38945035"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "all",
+											"type": "text"
+										},
+										{
+											"key": "fields",
+											"value": "transactionID_t",
+											"type": "text"
+										},
+										{
+											"key": "fields",
+											"value": "transactionID_t,transactionLine._line_bom_name",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								}
 							},
 							"response": []
 						},
