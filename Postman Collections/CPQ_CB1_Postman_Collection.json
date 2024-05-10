@@ -1190,6 +1190,11 @@
 			"id": "a3de71be-09d8-4ac8-8ce9-4759e7f657b5"
 		},
 		{
+			"name": "Document Generator",
+			"item": [],
+			"id": "012e5a49-f926-477c-abf1-d99126323e2e"
+		},
+		{
 			"name": "Favorite",
 			"item": [
 				{
@@ -2897,6 +2902,11 @@
 				}
 			],
 			"id": "62362df4-e946-4135-a9a9-bb6947200d7c"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "4b39d91f-8747-411c-b9bc-f192d622add9"
 		}
 	],
 	"auth": {
