@@ -1224,7 +1224,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"processVarname\": \"oraclecpqo\",\n    \"templateName\": \"Proposal Document\",\n    \"transactionId\": 5531903,\n    \"languageCode\": -1,\n    \"outputFormat\": \"PDF\"\n}",
+							"raw": "{\n    \"processVarname\": \"oraclecpqo\",\n    \"templateName\": \"Proposal\",\n    \"transactionId\": 38945035,\n    \"languageCode\": -1,\n    \"outputFormat\": \"DOCX\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1244,7 +1244,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/documentGenerator/{id}"
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator/38949418"
 					},
 					"response": []
 				},
@@ -1268,38 +1268,50 @@
 			"name": "Email Generator",
 			"item": [
 				{
-					"name": "New Request",
-					"id": "bc45a64a-a9b4-4ac8-934b-e6283bbdaa90",
+					"name": "Generate Email",
+					"id": "2e2e7ba7-8ccc-4a31-a140-146f7c32dfbf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processVarname\": \"oraclecpqo\",\n    \"templateName\": \"Proposal\",\n    \"transactionId\": 38945035,\n    \"languageCode\": -1,\n    \"outputFormat\": \"DOCX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator"
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
-					"id": "3d1b024c-8f5e-4078-801b-810f8021a917",
+					"name": "Get Generated Email",
+					"id": "e121a7e1-ee42-459b-b352-6d81d95d77b3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator/38949418"
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
-					"id": "5e7b84c4-178d-45b1-9fac-ff2704dac25f",
+					"name": "Get Generated Email List",
+					"id": "64bff7b4-d249-4904-9c08-d5ecb724820a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator"
 					},
 					"response": []
 				}
