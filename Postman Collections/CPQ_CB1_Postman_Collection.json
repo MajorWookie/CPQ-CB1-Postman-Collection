@@ -348,7 +348,28 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035/transactionLine"
+								"url": {
+									"raw": "{{Site URL}}{{Rest Version}}/commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}/38945035/transactionLine?expand=all",
+									"host": [
+										"{{Site URL}}{{Rest Version}}"
+									],
+									"path": [
+										"commerceDocuments{{Oraclecpqo Commerce Process}}{{Transaction}}",
+										"38945035",
+										"transactionLine"
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "all"
+										},
+										{
+											"key": "onlyData",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -1191,8 +1212,87 @@
 		},
 		{
 			"name": "Document Generator",
-			"item": [],
+			"item": [
+				{
+					"name": "Generate Document",
+					"id": "cec5684f-22f3-4f52-86e4-d2f0240c80a1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Generated Document",
+					"id": "82612f89-fe35-4de6-a084-c3ee3ee10b8c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "fc5c9568-634d-4a33-a272-4077e131bbbe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "012e5a49-f926-477c-abf1-d99126323e2e"
+		},
+		{
+			"name": "Email Generator",
+			"item": [
+				{
+					"name": "New Request",
+					"id": "bc45a64a-a9b4-4ac8-934b-e6283bbdaa90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "3d1b024c-8f5e-4078-801b-810f8021a917",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"id": "5e7b84c4-178d-45b1-9fac-ff2704dac25f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "4b39d91f-8747-411c-b9bc-f192d622add9"
 		},
 		{
 			"name": "Favorite",
@@ -2902,11 +3002,6 @@
 				}
 			],
 			"id": "62362df4-e946-4135-a9a9-bb6947200d7c"
-		},
-		{
-			"name": "New Folder",
-			"item": [],
-			"id": "4b39d91f-8747-411c-b9bc-f192d622add9"
 		}
 	],
 	"auth": {
