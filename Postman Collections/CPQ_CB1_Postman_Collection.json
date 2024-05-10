@@ -1249,7 +1249,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Get Generated Document List",
 					"id": "fc5c9568-634d-4a33-a272-4077e131bbbe",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
