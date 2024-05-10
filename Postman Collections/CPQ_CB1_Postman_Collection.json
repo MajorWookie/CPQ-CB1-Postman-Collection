@@ -1220,8 +1220,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"processVarname\": \"oraclecpqo\",\n    \"templateName\": \"Proposal Document\",\n    \"transactionId\": 5531903,\n    \"languageCode\": -1,\n    \"outputFormat\": \"PDF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator"
 					},
 					"response": []
 				},
@@ -1233,7 +1243,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator/{id}"
 					},
 					"response": []
 				},
@@ -1245,7 +1256,8 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "{{Site URL}}{{Rest Version}}/"
 					},
 					"response": []
 				}
