@@ -1257,7 +1257,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{Site URL}}{{Rest Version}}/"
+						"url": "{{Site URL}}{{Rest Version}}/documentGenerator"
 					},
 					"response": []
 				}
