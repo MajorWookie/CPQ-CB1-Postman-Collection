@@ -2655,7 +2655,7 @@
 							"response": []
 						},
 						{
-							"name": "Get Transaction Pricing Copy 2",
+							"name": "Get Transaction Line Item Pricing Items",
 							"id": "d68a83f2-6bea-46e0-a7e7-45ee1fe67f6b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2663,7 +2663,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/preview/{bsId}"
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/preview/{bsId}/items/{docNumber}"
 							},
 							"response": []
 						}
