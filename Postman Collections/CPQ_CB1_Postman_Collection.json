@@ -2626,6 +2626,51 @@
 					"id": "1ff1cd27-1a22-456e-a34c-84f04452ed93"
 				},
 				{
+					"name": "Pricing Preview",
+					"item": [
+						{
+							"name": "Get Transaction Pricing",
+							"id": "bd9e3537-3478-419e-a6fa-a7610d025e36",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/preview/{bsId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Transaction Pricing Items",
+							"id": "2280b468-2079-4e22-8157-f812952bfa7b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/preview/{bsId}/items"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Transaction Pricing Copy 2",
+							"id": "d68a83f2-6bea-46e0-a7e7-45ee1fe67f6b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/preview/{bsId}"
+							},
+							"response": []
+						}
+					],
+					"id": "3a6e5fb2-5ec7-488e-b0ab-540760e2d028"
+				},
+				{
 					"name": "Pricing Rules",
 					"item": [
 						{
@@ -2870,11 +2915,6 @@
 						}
 					],
 					"id": "3b4f5d11-dad9-4c25-b61d-407b52ddb659"
-				},
-				{
-					"name": "Pricing Preview",
-					"item": [],
-					"id": "3a6e5fb2-5ec7-488e-b0ab-540760e2d028"
 				}
 			],
 			"id": "e9e9dfad-40b8-4ea5-9324-7c268b23d52b"
