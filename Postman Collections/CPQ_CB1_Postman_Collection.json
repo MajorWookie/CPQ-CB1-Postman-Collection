@@ -2084,6 +2084,272 @@
 			"name": "Pricing Administration",
 			"item": [
 				{
+					"name": "Pricing Attributes",
+					"item": [
+						{
+							"name": "Get All Pricing Attributes",
+							"id": "f496e4aa-bcec-47e7-aabd-cb0e190bf5bd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Pricing Attribute",
+							"id": "9eae6887-573a-46e1-824d-d96c2e77c028",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Attribute Mappings for a Pricing Attribute",
+							"id": "b6aa5a25-c8fd-4653-a0e6-56323b3a383f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						},
+						{
+							"name": "Add a Pricing Attribute",
+							"id": "15028464-8fc4-4949-a47f-4ee76acd5f2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"test\",\n  \"variableName\": \"testAttribute\",\n  \"dataType\": \"String\",\n  \"attributeLevel\": \"Line\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Add an Attribute Mapping for a Pricing Attribute",
+							"id": "716d8017-d83f-4b4b-b6ce-0cdef931ca75",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dataSourceProviderVariableName\": \"oraclecpqo\",\n  \"variableName\": \"cH_float_convert\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Pricing Attribute",
+							"id": "f3eef9ad-95ab-4819-9a78-40d7b9373a2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pricing Attributes",
+							"id": "dd8d6a88-96ed-45ab-a073-05e9bd8281c6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//There are three operations included in this example:\n//\n//Add the new line-level attribute \"testAdd\"\n//Remove the \"_quantityValidator\" attribute\n//Replace the \"myAttribute\" Name\n\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"name\": \"New\",\n      \"variableName\": \"testAdd\",\n      \"dataType\": \"boolean\",\n      \"attributeLevel\": \"line\"\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/_quantityValidator\",\n    \"value\": {\n      \"variableName\": \"_quantityValidator\"\n    }\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/myAttribute\",\n    \"value\": {\n      \"name\": \"Updated Attribute Name\",\n      \"variableName\": \"myAttribute\"\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Pricing Attribute",
+							"id": "8de61e84-7521-457c-84bc-0a0fb7f9e853",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{   \n    \"name\": \"New pricing attribute name\"\n}"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Attribute Mappings for a Pricing Attribute",
+							"id": "c661d93a-1dfd-48b1-9042-13a0dc8f16f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "//Sample Request Body - Add Example\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"dataSourceProviderVariableName\": \"CONFIG_ATTRS_test3\",\n      \"variableName\": \"textField1\",\n      \"orderNumber\": 4\n    }\n  }\n]\n\n//Sample Request Body - Remove Example\n[{\n    \"op\": \"remove\",\n    \"path\": \"/3022752151\",\n    \"value\": {}\n  }\n]\n\n//Sample Request Body - Replace Example\n[{\n    \"op\": \"replace\",\n    \"path\": \"/3022752151\",\n    \"value\": {\n      \"orderNumber\": 1\n    }\n  }\n]"
+								},
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
+							},
+							"response": []
+						}
+					],
+					"id": "f7f1bd4e-c987-45f9-9301-d1c464696eda"
+				},
+				{
+					"name": "Pricing Engine Lookups",
+					"item": [
+						{
+							"name": "Get Lookups for All Accounts",
+							"id": "bb61d7f6-c0a7-487a-b4d4-41c4c06a0029",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for an Account",
+							"id": "e2a0f604-5be8-4464-9cd5-a362b466177c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Supported Currencies",
+							"id": "524ba01b-e3c0-4bb4-9aca-dbf7348eb622",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Supported Currency",
+							"id": "9ebbc753-bb36-4de7-8015-e9e29df6a2fa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Supported Data Sources",
+							"id": "b85fda2a-5b26-48ce-9c2b-c18364cf504a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Data Source's Attributes",
+							"id": "ab36b0b9-8ea3-41c0-96fc-2333014e9a5f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources/{dataSourceVarName}/attributes"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Parts",
+							"id": "8095a44e-f5c8-46a6-999b-6929fb1228ff",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for a Part",
+							"id": "60773575-68b9-4d47-9572-11b24669edb0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts/{lookupId}"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Lookups for All Simple Condition Attributes",
+							"id": "c5e328d2-ae42-4612-97c0-bdbb8821625c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/simpleConditionAttributes"
+							},
+							"response": []
+						}
+					],
+					"id": "e907ff96-8c39-4de1-9083-b342edccc897"
+				},
+				{
 					"name": "Price Models",
 					"item": [
 						{
@@ -2360,149 +2626,6 @@
 					"id": "1ff1cd27-1a22-456e-a34c-84f04452ed93"
 				},
 				{
-					"name": "Pricing Attributes",
-					"item": [
-						{
-							"name": "Get All Pricing Attributes",
-							"id": "f496e4aa-bcec-47e7-aabd-cb0e190bf5bd",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
-							},
-							"response": []
-						},
-						{
-							"name": "Get a Pricing Attribute",
-							"id": "9eae6887-573a-46e1-824d-d96c2e77c028",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
-							},
-							"response": []
-						},
-						{
-							"name": "Get All Attribute Mappings for a Pricing Attribute",
-							"id": "b6aa5a25-c8fd-4653-a0e6-56323b3a383f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
-							},
-							"response": []
-						},
-						{
-							"name": "Add a Pricing Attribute",
-							"id": "15028464-8fc4-4949-a47f-4ee76acd5f2a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"name\": \"test\",\n  \"variableName\": \"testAttribute\",\n  \"dataType\": \"String\",\n  \"attributeLevel\": \"Line\"\n}"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
-							},
-							"response": []
-						},
-						{
-							"name": "Add an Attribute Mapping for a Pricing Attribute",
-							"id": "716d8017-d83f-4b4b-b6ce-0cdef931ca75",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"dataSourceProviderVariableName\": \"oraclecpqo\",\n  \"variableName\": \"cH_float_convert\"\n}"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
-							},
-							"response": []
-						},
-						{
-							"name": "Delete a Pricing Attribute",
-							"id": "f3eef9ad-95ab-4819-9a78-40d7b9373a2b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
-							},
-							"response": []
-						},
-						{
-							"name": "Update Pricing Attributes",
-							"id": "dd8d6a88-96ed-45ab-a073-05e9bd8281c6",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "//There are three operations included in this example:\n//\n//Add the new line-level attribute \"testAdd\"\n//Remove the \"_quantityValidator\" attribute\n//Replace the \"myAttribute\" Name\n\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"name\": \"New\",\n      \"variableName\": \"testAdd\",\n      \"dataType\": \"boolean\",\n      \"attributeLevel\": \"line\"\n    }\n  }, {\n    \"op\": \"remove\",\n    \"path\": \"/_quantityValidator\",\n    \"value\": {\n      \"variableName\": \"_quantityValidator\"\n    }\n  }, {\n    \"op\": \"replace\",\n    \"path\": \"/myAttribute\",\n    \"value\": {\n      \"name\": \"Updated Attribute Name\",\n      \"variableName\": \"myAttribute\"\n    }\n  }\n]"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes"
-							},
-							"response": []
-						},
-						{
-							"name": "Update a Pricing Attribute",
-							"id": "8de61e84-7521-457c-84bc-0a0fb7f9e853",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{   \n    \"name\": \"New pricing attribute name\"\n}"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}"
-							},
-							"response": []
-						},
-						{
-							"name": "Update Attribute Mappings for a Pricing Attribute",
-							"id": "c661d93a-1dfd-48b1-9042-13a0dc8f16f3",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "//Sample Request Body - Add Example\n[{\n    \"op\": \"add\",\n    \"path\": \"/\",\n    \"value\": {\n      \"dataSourceProviderVariableName\": \"CONFIG_ATTRS_test3\",\n      \"variableName\": \"textField1\",\n      \"orderNumber\": 4\n    }\n  }\n]\n\n//Sample Request Body - Remove Example\n[{\n    \"op\": \"remove\",\n    \"path\": \"/3022752151\",\n    \"value\": {}\n  }\n]\n\n//Sample Request Body - Replace Example\n[{\n    \"op\": \"replace\",\n    \"path\": \"/3022752151\",\n    \"value\": {\n      \"orderNumber\": 1\n    }\n  }\n]"
-								},
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/attributes/{attributeVarName}/mappings"
-							},
-							"response": []
-						}
-					],
-					"id": "f7f1bd4e-c987-45f9-9301-d1c464696eda"
-				},
-				{
 					"name": "Pricing Rules",
 					"item": [
 						{
@@ -2749,127 +2872,9 @@
 					"id": "3b4f5d11-dad9-4c25-b61d-407b52ddb659"
 				},
 				{
-					"name": "Pricing Engine Lookups",
-					"item": [
-						{
-							"name": "Get Lookups for All Accounts",
-							"id": "bb61d7f6-c0a7-487a-b4d4-41c4c06a0029",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for an Account",
-							"id": "e2a0f604-5be8-4464-9cd5-a362b466177c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/accounts/{lookupId}"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for All Supported Currencies",
-							"id": "524ba01b-e3c0-4bb4-9aca-dbf7348eb622",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for a Supported Currency",
-							"id": "9ebbc753-bb36-4de7-8015-e9e29df6a2fa",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/currencies/{lookupId}"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for All Supported Data Sources",
-							"id": "b85fda2a-5b26-48ce-9c2b-c18364cf504a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for a Data Source's Attributes",
-							"id": "ab36b0b9-8ea3-41c0-96fc-2333014e9a5f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/dataSources/{dataSourceVarName}/attributes"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for All Parts",
-							"id": "8095a44e-f5c8-46a6-999b-6929fb1228ff",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for a Part",
-							"id": "60773575-68b9-4d47-9572-11b24669edb0",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/parts/{lookupId}"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Lookups for All Simple Condition Attributes",
-							"id": "c5e328d2-ae42-4612-97c0-bdbb8821625c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/pricingSetup/lookups/simpleConditionAttributes"
-							},
-							"response": []
-						}
-					],
-					"id": "e907ff96-8c39-4de1-9083-b342edccc897"
+					"name": "Pricing Preview",
+					"item": [],
+					"id": "3a6e5fb2-5ec7-488e-b0ab-540760e2d028"
 				}
 			],
 			"id": "e9e9dfad-40b8-4ea5-9324-7c268b23d52b"
