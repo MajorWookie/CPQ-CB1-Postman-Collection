@@ -75,33 +75,31 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "j_)2N17GCE",
+								"username": "AAnderson"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{Site URL}}{{Rest Version}}/assets?q={assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}&fields=assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c&expand=descendantAssets,",
+							"raw": "https://cpq-20262.bigmachines.com{{Rest Version}}/assets",
+							"protocol": "https",
 							"host": [
-								"{{Site URL}}{{Rest Version}}"
+								"cpq-20262",
+								"bigmachines",
+								"com{{Rest Version}}"
 							],
 							"path": [
 								"assets"
 							],
 							"query": [
 								{
-									"key": "q",
-									"value": "{assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}"
-								},
-								{
 									"key": "",
 									"value": "_ArraySet_t",
 									"disabled": true
-								},
-								{
-									"key": "fields",
-									"value": "assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c"
-								},
-								{
-									"key": "expand",
-									"value": "descendantAssets,"
 								}
 							]
 						}
