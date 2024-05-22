@@ -59,14 +59,89 @@
 							],
 							"query": [
 								{
-									"key": "fields",
-									"value": "status",
+									"key": "",
+									"value": "_ArraySet_t",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Assets Copy",
+					"id": "0feae0b6-c829-43aa-8ef4-040ef95458bd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/assets?q={assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}&fields=assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c&expand=descendantAssets,",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}"
 								},
 								{
 									"key": "",
 									"value": "_ArraySet_t",
 									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c"
+								},
+								{
+									"key": "expand",
+									"value": "descendantAssets,"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Assets Copy",
+					"id": "580d2996-ef96-4787-a7c8-0402028e3cff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Site URL}}{{Rest Version}}/assets?q={assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}&fields=assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c&expand=descendantAssets,",
+							"host": [
+								"{{Site URL}}{{Rest Version}}"
+							],
+							"path": [
+								"assets"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "{assetKey:{$eq:'abo_b901f03d-c793-4d67-8092-e5ee02e800f7'}}"
+								},
+								{
+									"key": "",
+									"value": "_ArraySet_t",
+									"disabled": true
+								},
+								{
+									"key": "fields",
+									"value": "assetKey,parentAsset,quantity,partNumber,displayKey,attributes,discountAmount,currency,startDate,endDate,bomItemId,parentBomItemId,modelPath,status,suspendDate,resumeDate,descendantAssets.assetKey,descendantAssets.parentAsset,descendantAssets.quantity,descendantAssets.partNumber,descendantAssets.displayKey,descendantAssets.attributes,descendantAssets.discountAmount,descendantAssets.currency,descendantAssets.startDate,descendantAssets.endDate,descendantAssets.bomItemId,descendantAssets.parentBomItemId,descendantAssets.modelPath,descendantAssets.status,descendantAssets.suspendDate,descendantAssets.resumeDate,customer,descendantAssets.updateOldSubs_c,descendantAssets.priceQty_c,descendantAssets.discount_c,descendantAssets.createdBy_c"
+								},
+								{
+									"key": "expand",
+									"value": "descendantAssets,"
 								}
 							]
 						}
