@@ -1848,7 +1848,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{Site URL}}{{Rest Version}}/files/assets_1709847196266"
+								"url": "{{Site URL}}{{Rest Version}}/files/assets_1716477264088"
 							},
 							"response": []
 						},
@@ -1865,7 +1865,6 @@
 									{
 										"key": "Media-type",
 										"value": "application/json",
-										"type": "text",
 										"disabled": true
 									}
 								],
@@ -1891,19 +1890,17 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"value": "application/json"
 									},
 									{
 										"key": "Prefer",
 										"value": "respond-async",
-										"type": "text",
 										"disabled": true
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\"fileName\":\"upload_1709833453357\"}"
+									"raw": "{\"fileName\":\"upload_1716479659593\"}"
 								},
 								"url": "{{Site URL}}{{Rest Version}}/assets/actions/import"
 							},
